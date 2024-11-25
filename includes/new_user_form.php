@@ -3,7 +3,9 @@
     <div class="card">
         <div class="card-body">
             <!--======================================================================-->
-            <form action="/action_page.php">
+            <form action="./includes/process_registration.php" method="POST" enctype="multipart/form-data"
+                class="needs-validation" novalidate>
+                
                 <div class="form-group">
                     <label for="username" class="form-label">Username:</label>
                     <input type="text" class="form-control" id="username" name="username" pattern="^[a-zA-Z0-9_]{5,50}$" required>
