@@ -10,7 +10,7 @@ if (isset($conn)) {
         $conn->exec("USE $dbname");
 
         // Fetch all users from the 'users' table
-        $stmt = $conn->query("SELECT id, username, email, full_name FROM users");
+        $stmt = $conn->query("SELECT id, username, email, phone, full_name, role FROM users");
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "<p>Error fetching users: " . $e->getMessage() . "</p>";
@@ -59,7 +59,9 @@ if (isset($conn)) {
                     <th>ID</th>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>Phone</th>
                     <th>Full Name</th>
+                    <th>Role</th>
                 </tr>
             </thead>
             <tbody>
@@ -69,7 +71,9 @@ if (isset($conn)) {
                             <td><?php echo htmlspecialchars($user['id']); ?></td>
                             <td><?php echo htmlspecialchars($user['username']); ?></td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
+                            <td><?php echo htmlspecialchars($user['phone']); ?></td>
                             <td><?php echo htmlspecialchars($user['full_name']); ?></td>
+                            <td><?php echo htmlspecialchars($user['role']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -91,7 +95,7 @@ if (isset($conn)) {
             // Initialize DataTables with search, pagination, and responsiveness
             $('#userTable').DataTable({
                 responsive: true,
-                pageLength: 5 // Default number of rows per page
+                pageLength: 10 // Default number of rows per page
             });
         });
     </script>
