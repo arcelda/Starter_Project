@@ -50,10 +50,19 @@
 
             <!-- Full Name -->
             <div class="mb-3">
-                <label for="full_name" class="form-label"><i class="fas fa-id-card"></i> Full Name</label>
+                <label for="full_name" class="form-label"><i class="fas fa-id-card"></i>Full Name </label>
                 <input type="text" class="form-control" id="full_name" name="full_name" required>
                 <div class="invalid-feedback">
                     Please provide your full name.
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+                <label for="phone" class="form-label"><i class="fas fa-phone-square"></i> Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                <div class="invalid-feedback">
+                    Please provide your phone number.
                 </div>
             </div>
 

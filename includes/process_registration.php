@@ -18,7 +18,7 @@ if (isset($conn)) {
         // Basic validation for form inputs
         $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
         $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
-        //$phone = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
+        $phone = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
         $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null; // Hash the password
         $full_name = !empty($_POST['full_name']) ? trim($_POST['full_name']) : null;
 
@@ -36,12 +36,12 @@ if (isset($conn)) {
                 /*$stmt = $conn->prepare("INSERT INTO users (username, email, phone, password, full_name, FileData, role) 
                                         VALUES (:username, :email, :phone, :password, :full_name, :fileData, :role)");*/
 
-                $stmt = $conn->prepare("INSERT INTO users (username, email, password, full_name, FileData, role) 
-                                        VALUES (:username, :email, :password, :full_name, :fileData, :role)");
+                $stmt = $conn->prepare("INSERT INTO users (username, email, password, phone, full_name, FileData, role) 
+                                        VALUES (:username, :email, :password, :phone, :full_name, :fileData, :role)");
 
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':email', $email);
-                //$stmt->bindParam(':phone', $phone);
+                $stmt->bindParam(':phone', $phone);
                 $stmt->bindParam(':password', $password);
                 $stmt->bindParam(':full_name', $full_name);
                 $stmt->bindParam(':fileData', $fileData, PDO::PARAM_LOB); // Storing as LOB (large object)

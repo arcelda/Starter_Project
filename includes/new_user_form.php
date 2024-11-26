@@ -25,8 +25,8 @@
 
                 <div>
                     <label for="phone">Phone:</label>
-                    <input type="tel" class="form-control" id="phone"
-                        pattern="[0-9]">
+                    <input type="tel" class="form-control" id="phone" name="phone" 
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                     <div><i>Numbers only.</i></div>
                 </div> <br>
 

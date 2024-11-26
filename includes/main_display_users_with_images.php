@@ -11,7 +11,7 @@ if (isset($conn)) {
 
         // Fetch all users from the 'users' table
         // We will also fetch the 'FileData' (image) from the database
-        $stmt = $conn->query("SELECT id, username, email, full_name, FileData FROM users");
+        $stmt = $conn->query("SELECT id, username, email, phone, full_name, FileData FROM users");
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo "<p>Error fetching users: " . $e->getMessage() . "</p>";
@@ -69,6 +69,7 @@ if (isset($conn)) {
                     <th>ID</th>
                     <th>Username</th>
                     <th>Email</th>
+                    <th>Phone</th>
                     <th>Full Name</th>
                     <th>Image</th> <!-- New column for images -->
                 </tr>
@@ -80,6 +81,7 @@ if (isset($conn)) {
                             <td><?php echo htmlspecialchars($user['id']); ?></td>
                             <td><?php echo htmlspecialchars($user['username']); ?></td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
+                            <td><?php echo htmlspecialchars($user['phone']); ?></td>
                             <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                             <td>
                                 <?php if (!empty($user['FileData'])): ?>
