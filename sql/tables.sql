@@ -12,15 +12,28 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE customer(
+   id int(13) UNSIGNED NOT NULL,
+   customer_id int(13) NOT NULL AUTO_INCREMENT,
+   full_name varchar(100) REFERENCES users(full_name),
+   username varchar(50) REFERENCES users(username),
+   email varchar(100) REFERENCES users(email),
+   phone varchar(15) REFERENCES users(phone),
+   password varchar(255) REFERENCES users(password),
+   roll ENUM('customer'),
+   PRIMARY KEY (customer_id),
+   FOREIGN KEY (id) REFERENCES users(id)
+);
+
 CREATE TABLE transactions (
-  id int(17) UNSIGNED NOT NULL AUTO_INCREMENT,
-  customer_id int(13),
+  customer_id int(13) NOT NULL,
+  transaction_id int(17) UNSIGNED NOT NULL AUTO_INCREMENT,
   ordered_products varchar(255) NOT NULL,
   total_cost varchar(15) NOT NULL,
-  transaction_d_t date_time NOT NULL,
+  transaction_d_t DATETIME NOT NULL,
   status ENUM('completed', 'canceled', 'shipped') NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (customer_id) REFERENCES users(id)
+  PRIMARY KEY (transaction_id),
+  FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
 CREATE TABLE products (
