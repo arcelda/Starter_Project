@@ -17,23 +17,26 @@
     <?php include './includes/header.php'; ?>
     <div class="container-fluid content-wrapper d-flex flex-column flex-grow-1">
         <div class="row flex-grow-1">
-            <?php
+           <?php
                 /*$user_id = $_SESSION['user_id'];
                 $query = "SELECT user_type FROM users WHERE id = $user_id";
                 $result = mysqli_query($conn, $query);
-                $row = mysqli_fetch_assoc($result);
+                $row = mysqli_fetch_assoc($result);*/
 
-                if ($row['role'] == 'admin') { 
+                if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin')) { 
                     include './includes/nav_admin.php';
                 }
-                else if ( $row['role'] == 'staff'){
+                else if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'staffs')){
                     include './includes/nav_staff.php';
                 }
                 else{
                     include './includes/nav.php';
-                }*/
-                include './includes/nav.php';
+                }
+                //include './includes/nav.php';
+                
             ?>
+
+
             <?php include './includes/main_carousel.php'; ?>
         </div>
     </div>

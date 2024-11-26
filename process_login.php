@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn->exec("USE $dbname");
 
             // Prepare the SQL query to fetch the user by username
-            $sql = "SELECT id, username, password, full_name, FileData FROM users WHERE username = :username";
+            //$sql = "SELECT id, username, password, full_name, FileData FROM users WHERE username = :username";
+            $sql = "SELECT id, username, password, full_name, FileData, role FROM users WHERE username = :username";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
             $stmt->execute();
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['full_name'] = $user['full_name'];
+                    $_SESSION['role'] = $user['role']; //This was added
                     $_SESSION['user_image'] = $user['FileData'] ? 'data:image/jpeg;base64,' . base64_encode($user['FileData']) : '';
 
                     // Redirect to the dashboard
@@ -70,4 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['login_error'] = $error;
     header('Location: index.php');
     exit();
+}
+
+//This part is new
+function showContentForRole($role){
+    if($_SESSION['role'] == $role){
+        return true;
+    }
+
+    return false;
 }

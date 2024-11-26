@@ -20,7 +20,7 @@ CREATE TABLE customer(
    email varchar(100) REFERENCES users(email),
    phone varchar(15) REFERENCES users(phone),
    password varchar(255) REFERENCES users(password),
-   roll ENUM('customer'),
+   role ENUM('customer'),
    PRIMARY KEY (customer_id),
    FOREIGN KEY (id) REFERENCES users(id)
 );
