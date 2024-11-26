@@ -66,6 +66,9 @@
                 </div>
             </div>
 
+            <!-- Role -->
+            <input type="hidden" name="role" value="customer">
+
             <button type="submit" class="btn btn-primary"><i class="fas fa-user-check"></i> Register</button>
         </form>
     </div>
