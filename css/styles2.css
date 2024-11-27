@@ -223,7 +223,7 @@
   th {
     text-align: inherit;
     text-align: -webkit-match-parent;
-    text_align: match-parent;
+    text-align: match-parent;
   }
   
   label {
