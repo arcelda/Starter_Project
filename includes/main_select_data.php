@@ -15,7 +15,7 @@
 
                                 // Execute the query and display results
                                 try {
-                                    $sql = "SELECT id, firstname, lastname FROM MyGuests";
+                                    $sql = "SELECT customer_id, full_name FROM users WHERE role IS 'customer'";
                                     $result = $conn->query($sql);
 
                                     // Check if there are rows returned
@@ -23,7 +23,7 @@
                                         echo "<table style='width:90%; background-color:#68CECB;' class='table table-bordered text-white'><tr><th>ID</th><th>Name</th></tr>";
                                         // Output data of each row
                                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                                            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["firstname"] . " " . $row["lastname"] . "</td></tr>";
+                                            echo "<tr><td>" . $row["customer_id"] . "</td><td>" . $row["full_name"] . "</td></tr>";
                                         }
                                         echo "</table>";
                                     } else {
