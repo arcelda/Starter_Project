@@ -19,8 +19,19 @@
         <?php include './includes/header.php'; ?>
         <div class="container-fluid content-wrapper d-flex flex-column flex-grow-1">
             <div class="row flex-grow-1">
-                <?php include './includes/nav.php'; ?>
-                <?php include './includes/main_video.php'; ?>
+            <?php
+
+                if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin')) { 
+                    include './includes/nav_admin.php';
+                }
+                else if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'staff')){
+                    include './includes/nav_staff.php';
+                }
+                else{
+                    include './includes/nav.php';
+                }          
+            ?>      
+          <?php include './includes/main_video.php'; ?>
             </div>
         </div>
         <?php include './includes/footer.php'; ?>
