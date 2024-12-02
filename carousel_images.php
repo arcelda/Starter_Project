@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -12,9 +12,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css">
-        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     </head>
 
     <body>
@@ -22,19 +19,18 @@
         <?php include './includes/header.php'; ?>
         <div class="container-fluid content-wrapper d-flex flex-column flex-grow-1">
             <div class="row flex-grow-1">
-            <?php
-
-                if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin')) { 
-                    include './includes/nav_admin.php';
-                }
-                else if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'staff')){
-                    include './includes/nav_staff.php';
-                }
-                else{
-                    include './includes/nav.php';
-                }          
+                <?php
+                    if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin')) { 
+                        include './includes/nav_admin.php';
+                    }
+                    else if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'staff')){
+                        include './includes/nav_staff.php';
+                    }
+                    else{
+                        include './includes/nav.php';
+                    }          
                 ?>
-                <?php include './includes/main_where.php'; ?>
+                <?php include './includes/main_insert_carousel_image.php'; ?>
                 <?php include './includes/aside.php'; ?>
             </div>
         </div>

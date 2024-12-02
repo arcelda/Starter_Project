@@ -33,8 +33,6 @@ if (isset($conn)) {
                 // Prepare SQL and bind parameters
                 $validRoles = ['customer', 'admin', 'staff']; // Valid roles
                 $role = (!empty($_POST['role']) && in_array($_POST['role'], $validRoles)) ? $_POST['role'] : 'customer';
-                /*$stmt = $conn->prepare("INSERT INTO users (username, email, phone, password, full_name, FileData, role) 
-                                        VALUES (:username, :email, :phone, :password, :full_name, :fileData, :role)");*/
 
                 $stmt = $conn->prepare("INSERT INTO users (username, email, password, phone, full_name, FileData, role) 
                                         VALUES (:username, :email, :password, :phone, :full_name, :fileData, :role)");
