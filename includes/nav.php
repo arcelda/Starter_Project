@@ -10,6 +10,5 @@
         <li><a href="video.php">Play Videos <i class="fas fa-video"></i></a></li>    
         <li><a href="display_users.php">Display Users <i class="fas fa-table"></i></a></li>
         
-        <!-- <li><a href="display_customers.php">Display Customers<i class="fas fa-table"></i></a></li> -->
     </ul>
 </nav>

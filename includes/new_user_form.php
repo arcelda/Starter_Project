@@ -50,6 +50,14 @@
                     </div>
                 </div>
 
+                <div class="mb-3">
+                    <label for="file" class="form-label"><i class="fas fa-file-upload"></i> Upload File</label>
+                    <input type="file" class="form-control" id="file" name="file" accept=".jpg,.jpeg,.png,.pdf">
+                    <div>
+                        Not required for customers.
+                    </div>
+                </div>
+
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <!--======================================================================-->
