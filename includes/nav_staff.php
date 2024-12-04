@@ -5,7 +5,7 @@
 <nav class="p-3" id="nav">
     <ul class="nav flex-column">
         <li><a href="dashboard.php">Home <i class="fas fa-home"></i></a></li>
-        <li><a href="insert_carousel_image.php">Insert Carousel Image <i class="fas fa-images"></i></a></li>
+        <li><a href="insert_carousel_image.php">Insert Item Image <i class="fas fa-images"></i></a></li>
         <li><a href="audio.php">Play Audio <i class="fas fa-music"></i></a></li>
         <li><a href="video.php">Play Videos <i class="fas fa-video"></i></a></li>
         

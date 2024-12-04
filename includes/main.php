@@ -4,7 +4,19 @@
         <div class="card-body">
 
             <p>Welcome to our website</p>
+            <p> </p>
 
+        </div>
+
+        <div class = "card">
+            <div class = "card-body">
+                
+            </div>
+            
+            
+            <?php
+
+            ?>
         </div>
     </div>
 </div>

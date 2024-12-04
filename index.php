@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <section class = "h-100 gradient-form" style = "background-color: #eee">
+    <section class = "h-100 gradient-form" style = "background-color: #eeee">
     <div class="container mt-5 py-5 h-100">
         <div class = "row d-flex justify-content-center align-items-center h-100">
          <div class = "col-xl-10">

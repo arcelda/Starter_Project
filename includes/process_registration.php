@@ -28,6 +28,7 @@ if (isset($conn)) {
 
             // Read file data into a variable
             $fileData = file_get_contents($file);
+           
 
             try {
                 // Prepare SQL and bind parameters
@@ -51,7 +52,9 @@ if (isset($conn)) {
             } catch (PDOException $e) {
                 $message =  "Error inserting data: " . $e->getMessage();
             }
-        } else {
+            
+        } 
+        else {
             $message =  "Error: Please upload a valid file.";
         }
 
