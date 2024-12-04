@@ -26,7 +26,9 @@ if (isset($conn)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <!-- Include DataTables CSS and jQuery -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <style>
@@ -74,6 +76,14 @@ if (isset($conn)) {
                             <td><?php echo htmlspecialchars($user['phone']); ?></td>
                             <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                             <td><?php echo htmlspecialchars($user['role']); ?></td>
+                            <!-- <td>
+                                <a href="editProduct.php?id=<?php echo $product['id']; ?>" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="deleteProduct.php?id=<?php echo $product['id']; ?>" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td> -->
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
