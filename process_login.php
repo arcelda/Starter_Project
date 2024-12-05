@@ -1,6 +1,8 @@
 <?php
+
 session_start();
 include './includes/conn.php';
+
 
 $error = "";
 
@@ -23,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn->exec("USE $dbname");
 
             // Prepare the SQL query to fetch the user by username
-            //$sql = "SELECT id, username, password, full_name, FileData FROM users WHERE username = :username";
-            $sql = "SELECT id, username, password, phone, full_name, FileData, role FROM users WHERE username = :username";
+            $sql = "SELECT id, username, email, password, phone, full_name, FileData, role FROM users WHERE username = :username";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
@@ -39,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     // Password is correct, set up the session
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
+                    $_SESSION['email'] = $user['email'];
                     $_SESSION['phone'] = $user['phone'];
                     $_SESSION['full_name'] = $user['full_name'];
                     $_SESSION['role'] = $user['role'];
