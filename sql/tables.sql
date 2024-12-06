@@ -1,27 +1,44 @@
--- Active: 1732980536058@@127.0.0.1@3306@mydbpdo
-CREATE TABLE 'users' (
-  'id' int(13) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE users (
+  id int(13) UNSIGNED NOT NULL AUTO_INCREMENT,
   username varchar(50) NOT NULL,
   email varchar(100) NOT NULL,
   phone varchar(15) NOT NULL,
   password varchar(255) NOT NULL,
   full_name varchar(100) DEFAULT NULL,
   role ENUM('admin', 'staff', 'customer') NOT NULL,
+  
   FileData longblob DEFAULT NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp(),
   updated_at timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (id)
 );
 
+ALTER TABLE users 
+MODIFY COLUMN role VARCHAR(50) DEFAULT 'customer', 
+ADD CONSTRAINT chk_roles CHECK (role IN ('customer', 'admin', 'staff'));
+
+CREATE TABLE customer(
+   id int(13) UNSIGNED NOT NULL,
+   customer_id int(13) NOT NULL AUTO_INCREMENT,
+   full_name varchar(100) REFERENCES users(full_name),
+   username varchar(50) REFERENCES users(username),
+   email varchar(100) REFERENCES users(email),
+   phone varchar(15) REFERENCES users(phone),
+   password varchar(255) REFERENCES users(password),
+   role ENUM('customer'),
+   PRIMARY KEY (customer_id),
+   FOREIGN KEY (id) REFERENCES users(id)
+);
+
 CREATE TABLE transactions (
-  id INT(17) UNSIGNED NOT NULL AUTO_INCREMENT,
-  customer_id int(13),
+  customer_id int(13) NOT NULL,
+  transaction_id int(17) UNSIGNED NOT NULL AUTO_INCREMENT,
   ordered_products varchar(255) NOT NULL,
   total_cost varchar(15) NOT NULL,
-  transaction_d_t date_time NOT NULL,
+  transaction_d_t DATETIME NOT NULL,
   status ENUM('completed', 'canceled', 'shipped') NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (customer_id) REFERENCES users(id)
+  PRIMARY KEY (transaction_id),
+  FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
 );
 
 CREATE TABLE products (
