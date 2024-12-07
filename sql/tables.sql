@@ -6,7 +6,6 @@ CREATE TABLE users (
   password varchar(255) NOT NULL,
   full_name varchar(100) DEFAULT NULL,
   role ENUM('admin', 'staff', 'customer') NOT NULL,
-  
   FileData longblob DEFAULT NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp(),
   updated_at timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -44,8 +43,20 @@ CREATE TABLE transactions (
 CREATE TABLE products (
   product_id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
-  price varchar(15) NOT NULL,
+  price DECIMAL(10,2),
   description varchar(255) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (product_id)
+);
+
+/* This is the table with images, do not use yet*/
+CREATE TABLE products (
+  product_id int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  name varchar(100) NOT NULL,
+  price DECIMAL(10,2),
+  description varchar(255) DEFAULT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FileData longblob NOT NULL,
   PRIMARY KEY (product_id)
 );
 

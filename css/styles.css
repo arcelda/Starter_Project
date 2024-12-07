@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Candara';
 }
 
 
@@ -15,6 +16,7 @@ header {
     /* Horizontally centers the text */
     align-items: center;
     /* Vertically centers the text */
+    font-family: 'Candara';
 }
 
 footer {
@@ -22,6 +24,23 @@ footer {
     margin-top: auto;
     height: 50px;
 }
+
+.login-page {
+    background: radial-gradient(circle, rgba(0,212,255,1) 16%, rgba(9,28,121,0.6306897759103641) 48%, rgba(8,23,97,0.9360119047619048) 91%);
+}
+
+.login-page-inner{
+    background: radial-gradient(circle, rgba(0,212,255,1) 30%, rgba(9,28,121,0.6306897759103641) 61%);
+}
+
+.login-page-font{
+    font-family: 'Candara';
+}
+
+.site-font{
+    font-family: 'Candara';
+}
+
 /* Added CSS Code for Login Page */
 .gradient-custom-2 {
     /* fallback for old browsers */
@@ -70,6 +89,7 @@ footer {
     background-color: #1a4b88;
     color: #52636f;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    font-family: 'Candara';
 }
 
 #nav li a {

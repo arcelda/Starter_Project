@@ -37,7 +37,7 @@ $userImage = $_SESSION['user_image'];
 </style>
 
 <header class="text-white text-center p-3">
-    <h1>Store Database </h1>
+    <h1>Maria Sanford Marketplace </h1>
     <?php if (isset($_SESSION['user_id'])): ?>
         <!-- User information displayed at the top right corner -->
         <div class="user-info">

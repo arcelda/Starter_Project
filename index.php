@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,24 +17,23 @@
 </head>
 
 <body>
-    <section class = "h-100 gradient-form" style = "background-color: #eeee">
+    <section class = "h-100 gradient-form login-page">
     <div class="container mt-5 py-5 h-100">
         <div class = "row d-flex justify-content-center align-items-center h-100">
             <div class = "col-xl-10">
                 <div class = "card rounded-3 text-black"> 
-                    <div class = "row g-0"> 
+                    <div class = "row g-0 login-page-inner"> 
                         <div class = "card-body p-md-5 mx-md-4">
-                            <div class = "text-center">
-                                <h3 class = " mt-1 mb-5 pb-1"> This is Store Team </h3>
-                                <img src = "images_non_inventory/ccsuLogo.jpg" style ="width: 200px;" alt = "logo">    
-                                <p> Put Image here </p>
+                            <div class = "text-center login-page-font">
+                                <h3 class = " mt-1 mb-5 pb-1"> Maria Sanford Marketplace </h3>
+                                <img src = "http://localhost:3000/images_non_inventory/ccsuLogo.jpg" style ="width: 200px;" alt = "logo">    
                                                                     
                                 <h2 class="text-center">Login</h2>
                                 <div data-mdv-input-init class = "form-outline mb-3">
                                     <div class="row justify-content-center">
                                         <form action="process_login.php" method="POST">
                                             <div class="mb-7">
-                                                <label for="username" class="form-label">Username</label>
+                                                <label for="username" class="form-label" >Username</label>
                                                 <div class="input-group">
                                                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                                                     <input type="text" class="form-control" id="username" name="username"

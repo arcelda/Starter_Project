@@ -9,6 +9,7 @@
         <li><a href="audio.php">Play InStore Audio <i class="fas fa-music"></i></a></li>
         <li><a href="video.php">Play InStore Videos <i class="fas fa-video"></i></a></li>
         <li><a href="display_users.php">Display All Users <i class="fas fa-table"></i></a></li>
+        <li><a href="display_inventory.php">Display Inventory <i class="fas fa-table"></i></a></li>
         <li><a href="form_user.php">Add New User<i class="fas fa-file-alt"></i></a></li>
         <li><a href="get_last_insert_id.php">Get Last Insert ID <i class="fas fa-key"></i></a></li>
         <li><a href="select_data.php">Select Data <i class="fas fa-search"></i></a></li>

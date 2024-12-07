@@ -9,7 +9,7 @@
         <li><a href="audio.php">Play Audio <i class="fas fa-music"></i></a></li>
         <li><a href="video.php">Play Videos <i class="fas fa-video"></i></a></li>
         <li><a href="display_users.php">Display Users <i class="fas fa-table"></i></a></li>
-        
+        <li><a href="display_inventory.php">Display Inventory <i class="fas fa-table"></i></a></li>
         <li><a href="get_last_insert_id.php">Get Last Insert ID <i class="fas fa-key"></i></a></li>
         <li><a href="select_data.php">Select Data <i class="fas fa-search"></i></a></li>
         <li><a href="select_data_into_datatable.php">Select Data Into Datatable <i class="fas fa-table"></i></a></li>
