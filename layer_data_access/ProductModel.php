@@ -33,7 +33,7 @@ class ProductModel
     public function createProduct($name, $price, $description)
     {
         //$query = "INSERT INTO " . $this->table_name . " (name, price, description, FileData) VALUES (:name, :price, :description, :fileData)";
-        $query = "INSERT INTO " . $this->table_name . " (name, price, description, FileData) VALUES (:name, :price, :description, :fileData)";
+        $query = "INSERT INTO " . $this->table_name . " (name, price, description) VALUES (:name, :price, :description)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":name", $name);
         $stmt->bindParam(":price", $price);
