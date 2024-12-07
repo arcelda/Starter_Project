@@ -71,19 +71,19 @@ $products = $controller->listProducts();
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script>
-    $('#productTable').DataTable({
-        responsive: true,
-        autoWidth: false,
-        paging: true,
-        searching: true,
-        dom: '<"top"f>rt<"bottom"lp><"clear">',
-        language: {
-            search: "_INPUT_",
-            searchPlaceholder: "Search products..."
-        }
+    $(document).ready(function() {    
+        $('#productTable').DataTable({
+            responsive: true,
+            autoWidth: false,
+            paging: true,
+            searching: true,
+            dom: '<"top"f>rt<"bottom"lp><"clear">',
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search products..."
+            }
+        });
     });
-
-
     </script>
 </body>
 
