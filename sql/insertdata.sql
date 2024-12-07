@@ -1,6 +1,9 @@
-INSERT INTO users (username, email, phone) VALUES
-('TestName', 'test@mail.com', '2223456789')
-
+INSERT INTO users (username, email, phone, password, full_name, role) VALUES
+('jandoe002', 'janejdoe@gmail.com', '222-465-1379', 'password@123', 'Jane Doe', 'staff'),
+('ricthomas003', 'richardthomasjr@gmail.com', '222-312-0357', 'password@123', 'Richard Thomas', 'staff'),
+('johndoe55', 'johnmdoe@gmail.com', '222-123-6789', 'password@123', 'John Doe', 'customer'),
+('marrybarry85', 'marybclark@gmail.com', '233-852-9105', 'password@123', 'Mary Clark', 'customer'),
+('cooldudez95', 'supercooldudez95@gmail.com', '222-349-8264', 'password@123', 'Matt Dudez', 'customer')
 
 INSERT INTO products (product_id, name, price, description) VALUES
 (1, 'Black CCSU Hoodie', 34.99, 'One of our more popular items!'),
