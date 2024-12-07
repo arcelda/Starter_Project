@@ -45,7 +45,9 @@ class ProductModel
     //public function updateProduct($product_id, $name, $price, $description, $fileData)
     public function updateProduct($product_id, $name, $price, $description)
     {
-        $query = "UPDATE " . $this->table_name . " SET name = :name, price = :price, description = :description, FileData = :filedata WHERE product_id = :product_id";
+        //$query = "UPDATE " . $this->table_name . " SET name = :name, price = :price, description = :description, FileData = :filedata WHERE product_id = :product_id";
+        $query = "UPDATE " . $this->table_name . " SET name = :name, price = :price, description = :description WHERE product_id = :product_id";
+
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":name", $name);
         $stmt->bindParam(":price", $price);
