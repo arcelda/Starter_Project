@@ -47,16 +47,16 @@ $products = $controller->listProducts();
                         <td><?php echo htmlspecialchars($product['price']); ?></td>
                         <td><?php echo htmlspecialchars($product['description']); ?></td>
                         <td>
-                            <a href="addProduct.php?id=<?php echo $product['product_id']; ?>" class="btn btn-success btn-sm">
+                            <a href="addProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-success btn-sm">
                                 <i class="fas fa-add"></i>
                             </a>
-                            <a href="viewProduct.php?id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
+                            <a href="viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="editProduct.php?id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
+                            <a href="editProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="deleteProduct.php?id=<?php echo $product['product_id']; ?>" class="btn btn-danger btn-sm">
+                            <a href="deleteProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

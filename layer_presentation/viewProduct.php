@@ -8,18 +8,26 @@ $name = $price = $description = ''; // Default empty values
 // Check if product_id is set in the URL for initial loading
 if (isset($_GET['product_id'])) {
     $product_id = filter_var($_GET['product_id'], FILTER_SANITIZE_NUMBER_INT);
-    $controller = new ProductController();
-    $product = $controller->viewProduct($product_id);
 
-    if ($product) {
-        // Populate variables with product data
-        $name = $product['name'];
-        $price = $product['price'];
-        $description = $product['description'];
+    if ($product_id > 0) {
+        $controller = new ProductController();
+        $product = $controller->viewProduct($product_id);
+
+        if ($product) {
+            // Successfully fetched product details
+            $name = $product['name'];
+            $price = $product['price'];
+            $description = $product['description'];
+        } else {
+            $error_message = "Product not found for ID: $product_id";
+        }
     } else {
-        $error_message = "Product not found.";
+        $error_message = "Invalid product ID.";
     }
+} else {
+    $error_message = "No product ID specified in the URL.";
 }
+
 
 ?>
 
@@ -53,7 +61,7 @@ if (isset($_GET['product_id'])) {
                 <p><strong>Description:</strong> <?php echo htmlspecialchars($product['description']); ?></p>
             </div>
             <div class="card-footer text-end">
-                <a href="editProduct.php?id=<?php echo $product_id; ?>" class="btn btn-warning">Edit</a>
+                <a href="editProduct.php?product_id=<?php echo $product_id; ?>" class="btn btn-warning">Edit</a>
                 <a href="productList.php" class="btn btn-secondary">Back to Products</a>
             </div>
         </div>
