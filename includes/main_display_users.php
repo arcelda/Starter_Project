@@ -1,5 +1,7 @@
 <?php
 include './includes/conn.php';
+// require '../layer_presentation/editUser.php';
+// require '../layer_presentation/deleteUser.php';
 
 // Check if the database connection is available
 if (isset($conn)) {
@@ -76,14 +78,14 @@ if (isset($conn)) {
                             <td><?php echo htmlspecialchars($user['phone']); ?></td>
                             <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                             <td><?php echo htmlspecialchars($user['role']); ?></td>
-                            <!-- <td>
-                                <a href="editProduct.php?id=<?php echo $product['id']; ?>" class="btn btn-warning btn-sm">
+                            <td>
+                                <a href="editUser.php?id=<?php echo $product['id']; ?>" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="deleteProduct.php?id=<?php echo $product['id']; ?>" class="btn btn-danger btn-sm">
+                                <a href="deleteUser.php?id=<?php echo $product['id']; ?>" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                            </td> -->
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
