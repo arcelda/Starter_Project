@@ -56,7 +56,7 @@ CREATE TABLE products (
   price DECIMAL(10,2),
   description varchar(255) DEFAULT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FileData longblob NOT NULL,
+  product_image varchar(255) DEFAULT NULL,
   PRIMARY KEY (product_id)
 );
 

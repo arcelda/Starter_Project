@@ -34,37 +34,46 @@ $products = $controller->listProducts();
                         <th>Name</th>
                         <th>Price</th>
                         <th>Description</th>
+                        <th>Image</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($products as $product): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($product['product_id']); ?></td>
-                        <td><?php echo htmlspecialchars($product['name']); ?></td>
-                        <td><?php echo htmlspecialchars($product['price']); ?></td>
-                        <td><?php echo htmlspecialchars($product['description']); ?></td>
-                        <td>
-                            <?php if (isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin'): ?>
-                                <a href="layer_presentation\addProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-success btn-sm">
-                                    <i class="fas fa-add"></i>
+                    <?php foreach ($products as $product) { 
+                        $product_image = $product['product_image']; // Assuming 'product_image' is the column for image path
+                    ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($product['product_id']); ?></td>
+                            <td><?php echo htmlspecialchars($product['name']); ?></td>
+                            <td><?php echo htmlspecialchars($product['price']); ?></td>
+                            <td><?php echo htmlspecialchars($product['description']); ?></td>
+                            <td>
+                                <?php if (!empty($product_image)): ?>
+                                    <img src="<?php echo htmlspecialchars($product_image); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100">
+                                <?php else: ?>
+                                    <p>No image available</p>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                                    <a href="layer_presentation/addProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-success btn-sm">
+                                        <i class="fas fa-add"></i>
+                                    </a>
+                                <?php endif; ?>
+                                <a href="layer_presentation/viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
+                                    <i class="fas fa-eye"></i>
                                 </a>
-                            <?php endif; ?>
-                            <a href="layer_presentation\viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <?php if (isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin'): ?>
-                                <a href="layer_presentation\editProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                            
-                                <a href="layer_presentation\deleteProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            <?php endif; ?>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                                    <a href="layer_presentation/editProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="layer_presentation/deleteProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-danger btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php } // End of the foreach loop ?>
                 </tbody>
             </table>
         </div>

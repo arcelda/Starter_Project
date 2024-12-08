@@ -20,14 +20,14 @@ class ProductController
         return $this->model->getProductByproduct_id($product_id);
     }
 
-    public function addProduct($name, $price, $description)
+    public function addProduct($name, $price, $description, $product_image)
     {
-        return $this->model->createProduct($name, $price, $description);
+        return $this->model->createProduct($name, $price, $description, $product_image);
     }
 
-    public function updateProduct($product_id, $name, $price, $description)
+    public function updateProduct($product_id, $name, $price, $description, $product_image)
     {
-        return $this->model->updateProduct($product_id, $name, $price, $description);
+        return $this->model->updateProduct($product_id, $name, $price, $description, $product_image);
     }
 
     public function deleteProduct($product_id)
