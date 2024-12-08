@@ -28,12 +28,14 @@ if (isset($_GET['product_id'])) {
     $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
 
-    // Handling image upload
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'uploads/';
+        $uploadDir = 'images/'; // Change the directory to 'images/'
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true); // Create the 'images' folder if it doesn't exist
+        }
         $imageFileName = basename($_FILES['product_image']['name']);
         $uploadFile = $uploadDir . $imageFileName;
-
+        
         if (move_uploaded_file($_FILES['product_image']['tmp_name'], $uploadFile)) {
             $product_image = $uploadFile; // Save the path to the image
         } else {
