@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Database Management System</title>
+    <title>Maria Sanford Marketplace</title>
     <link rel="icon" type="image/x-icon" href="./includes/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <section class = "h-100 gradient-form login-page">
     <div class="container mt-5">
         <h2 class="text-center"><i class="fas fa-user-plus"></i> User Registration</h2>
         <form action="./includes/process_registration.php" method="POST" enctype="multipart/form-data"
@@ -81,6 +82,7 @@
             <button type="submit" class="btn btn-primary"><i class="fas fa-user-check"></i> Register</button>
         </form>
     </div>
+    </section>
 
     <script>
         // Bootstrap form validation
