@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
 
     if ($controller->deleteUser($id)) {
         $success_message = "User deleted successfully!";
-        header("Location: main_display_users.php");
+        header("Location: ../display_users.php");
         exit();
     } else {
         $error_message = "Failed to delete user.";
@@ -74,7 +74,7 @@ if (isset($_GET['id'])) {
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     <i class="fas fa-trash-alt"></i> Delete
                 </button>
-                <a href="main_display_users.php" class="btn btn-secondary">Back to Users</a>
+                <a href="../display_users.php" class="btn btn-secondary">Back to Users</a>
             </div>
         </div>
     </div>

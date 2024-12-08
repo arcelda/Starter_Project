@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
 <body class="bg-light">
     <div class="container mt-5">
         <div class="text-center mb-3">
-            <a href='main_display_users.php' class='btn btn-secondary'>Back to Users</a>
+            <a href='../display_users.php' class='btn btn-secondary'>Back to Users</a>
         </div>
 
         <div class="card">
