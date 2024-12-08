@@ -25,7 +25,7 @@ class UserModel
 
     public function getUserByproduct_id($id)
     {
-        $query = "SELECT * FROM products WHERE id = :id";
+        $query = "SELECT * FROM users WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
