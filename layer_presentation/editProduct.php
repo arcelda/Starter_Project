@@ -29,7 +29,7 @@ if (isset($_GET['product_id'])) {
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
 
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'images/'; // Change the directory to 'images/'
+        $uploadDir = '../images/'; // Change the directory to 'images/'
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0777, true); // Create the 'images' folder if it doesn't exist
         }
