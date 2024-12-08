@@ -13,7 +13,7 @@
 
 <body>
     <section class = "h-100 gradient-form login-page">
-    <div class="container mt-5">
+    <div class="container mt-5 register-page-font">
         <h2 class="text-center"><i class="fas fa-user-plus"></i> User Registration</h2>
         <form action="./includes/process_registration.php" method="POST" enctype="multipart/form-data"
             class="needs-validation" novalidate>
