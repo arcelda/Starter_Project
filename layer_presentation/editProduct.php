@@ -84,7 +84,7 @@ if (isset($_GET['product_id'])) {
                         <?php if (!empty($product_image)): ?>
                             <div class="mb-3">
                                 <label class="form-label">Current Image:</label>
-                                <img src="<?php echo htmlspecialchars($product_image); ?>" alt="Current Image" width="100">
+                                <img src="<?php echo 'http://localhost/Starter_Project/' . htmlspecialchars($product_image); ?>" alt="Current Image" width="100">
                             </div>
                         <?php endif; ?>
 
