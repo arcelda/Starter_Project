@@ -62,7 +62,7 @@ if (isset($_GET['product_id'])) {
             </div>
             <div class="card-footer text-end">
                 <a href="editProduct.php?product_id=<?php echo $product_id; ?>" class="btn btn-warning">Edit</a>
-                <a href="productList.php" class="btn btn-secondary">Back to Products</a>
+                <a href="../display_inventory.php" class="btn btn-secondary">Back to Products</a>
             </div>
         </div>
     </div>

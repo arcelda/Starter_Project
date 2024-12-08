@@ -1,5 +1,5 @@
 <?php
-include './includes/conn.php';
+//include './includes/conn.php';
 // require '../layer_presentation/editUser.php';
 // require '../layer_presentation/deleteUser.php';
 
@@ -66,6 +66,7 @@ if (isset($conn)) {
                     <th>Phone</th>
                     <th>Full Name</th>
                     <th>Role</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

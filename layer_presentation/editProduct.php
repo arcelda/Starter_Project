@@ -50,7 +50,7 @@ if (isset($_GET['product_id'])) {
     <div class="container mt-5">
         <div class="text-center mb-3">
             <a href="addProduct.php" class="btn btn-primary">Add New Product</a>
-            <a href='productList.php' class='btn btn-secondary'>Back to Products</a>
+            <a href='../display_inventory.php' class='btn btn-secondary'>Back to Products</a>
         </div>
 
         <div class="card">
