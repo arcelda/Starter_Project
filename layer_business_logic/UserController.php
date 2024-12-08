@@ -1,5 +1,5 @@
 <?php
-require_once '../layer_data_access/UserModel.php';
+require_once __DIR__ . '/../layer_data_access/UserModel.php';
 
 class UserController
 {
