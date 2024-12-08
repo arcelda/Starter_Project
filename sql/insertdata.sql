@@ -15,7 +15,7 @@ INSERT INTO products (product_id, name, price, description) VALUES
 
 /* These are with images and will be implemented later*/
 INSERT INTO products (product_id, name, price, description, product_image) VALUES
-(1, 'Black CCSU Hoodie', 34.99, 'One of our more popular items!', 'images/blue_CCSU_shirt.jpg'),
+(1, 'Black CCSU Hoodie', 34.99, 'One of our more popular items!', 'images/black_CCSU_hoodie.jpg'),
 (2, 'Blue CCSU Shirt', 19.99, 'One of our more popular items!', 'images/blue_CCSU_shirt.jpg'),
 (3, 'Gray CCSU hoodie', 29.99, 'One of our more popular items!', 'images/gray_CCSU_hoodie.jpg'),
 (4, 'Gray CCSU V-neck', 19.99, 'One of our more popular items!', 'images/gray_CCSU_v_neck.jpg'),

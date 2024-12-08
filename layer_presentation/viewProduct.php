@@ -4,6 +4,7 @@ require_once '../layer_business_logic/ProductController.php';
 $error_message = '';
 $success_message = '';
 $name = $price = $description = ''; // Default empty values
+$product_image = ''; // Default image path
 
 // Check if product_id is set in the URL for initial loading
 if (isset($_GET['product_id'])) {
@@ -18,6 +19,7 @@ if (isset($_GET['product_id'])) {
             $name = $product['name'];
             $price = $product['price'];
             $description = $product['description'];
+            $product_image = $product['product_image']; // Assuming image is stored in the 'image' column
         } else {
             $error_message = "Product not found for ID: $product_id";
         }
@@ -27,7 +29,6 @@ if (isset($_GET['product_id'])) {
 } else {
     $error_message = "No product ID specified in the URL.";
 }
-
 
 ?>
 
@@ -42,7 +43,6 @@ if (isset($_GET['product_id'])) {
 </head>
 
 <body class="bg-light">
-
     <div class="container my-5">
         <div class="card shadow-sm">
             <div class="card-header bg-primary text-white">
@@ -59,6 +59,16 @@ if (isset($_GET['product_id'])) {
                 <p><strong>Name:</strong> <?php echo htmlspecialchars($product['name']); ?></p>
                 <p><strong>Price:</strong> $<?php echo htmlspecialchars($product['price']); ?></p>
                 <p><strong>Description:</strong> <?php echo htmlspecialchars($product['description']); ?></p>
+                <p><strong>Image Path Debug:</strong> <?php echo htmlspecialchars($product_image); ?></p>
+
+                
+                <p><strong>Image:</strong>
+                    <?php if (!empty($product_image)): ?>
+                        <img src="http://localhost/Starter_Project/<?php echo htmlspecialchars($product_image); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100">
+                    <?php else: ?>
+                        <p>No image available</p>
+                    <?php endif; ?>
+                </p>
             </div>
             <div class="card-footer text-end">
                 <a href="editProduct.php?product_id=<?php echo $product_id; ?>" class="btn btn-warning">Edit</a>
