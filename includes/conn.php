@@ -1,4 +1,6 @@
 <?php
+
+define('BASE_PATH', __DIR__ . '/../');
 // conn.php
 
 // Define your database server details

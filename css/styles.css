@@ -41,6 +41,31 @@ footer {
     font-family: 'Candara';
 }
 
+/* Add this to your styles.css */
+.card-body {
+    padding: 20px; /* Adjust padding as needed */
+    margin: 0; /* Ensure there’s no extra margin */
+}
+
+.container {
+    max-width: 100%; /* Ensure full width */
+}
+
+/* Ensure flex layout in container */
+.container-fluid {
+    display: flex;
+    height: 100vh;
+}
+
+.container-fluid .p-3 {
+    flex-grow: 1;
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add space below the heading */
+}
+
 /* Added CSS Code for Login Page */
 .gradient-custom-2 {
     /* fallback for old browsers */
@@ -69,13 +94,14 @@ footer {
 /* Styling the layout for responsiveness */
 #nav {
     background-color: #170d54;
+    min-height: 100vh;        /* Full height of the viewport */
 }
 
 #main {
     background-color: #43464adb;
+    padding: 15px;
+    overflow-x: auto;          /* Prevent horizontal overflow */
 }
-
-
 
 #nav ul {
     list-style-type: none;
@@ -119,10 +145,6 @@ footer {
     background-color: #2a549d;
     /* Your desired background color */
 }
-
-
-
-
 
 
 #aside {

@@ -1,5 +1,5 @@
 <?php
-require_once '../layer_business_logic/ProductController.php';
+require_once __DIR__ . '/../layer_business_logic/ProductController.php';
 
 $controller = new ProductController();
 $products = $controller->listProducts();
