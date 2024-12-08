@@ -43,7 +43,7 @@ class ProductModel
         return null; // Return null if nothing found or query fails
     }
 
-    public function createProduct($name, $price, $descriptio, $product_image)
+    public function createProduct($name, $price, $description, $product_image)
     {
         $query = "INSERT INTO " . $this->table_name . " (name, price, description, product_image) VALUES (:name, :price, :description, :product_image)";
         $stmt = $this->conn->prepare($query);

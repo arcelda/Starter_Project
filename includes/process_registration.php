@@ -27,22 +27,22 @@ if (isset($conn)) {
             $file = $_FILES['file']['tmp_name'];
 
             // Read file data into a variable
-            $fileData = file_get_contents($file);
+            $user_image = file_get_contents($file);
 
             try {
                 // Prepare SQL and bind parameters
                 $validRoles = ['customer', 'admin', 'staff']; // Valid roles
                 $role = (!empty($_POST['role']) && in_array($_POST['role'], $validRoles)) ? $_POST['role'] : 'customer';
 
-                $stmt = $conn->prepare("INSERT INTO users (username, email, password, phone, full_name, FileData, role) 
-                                        VALUES (:username, :email, :password, :phone, :full_name, :fileData, :role)");
+                $stmt = $conn->prepare("INSERT INTO users (username, email, password, phone, full_name, user_image, role) 
+                                        VALUES (:username, :email, :password, :phone, :full_name, :user_image, :role)");
 
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':phone', $phone);
                 $stmt->bindParam(':password', $password);
                 $stmt->bindParam(':full_name', $full_name);
-                $stmt->bindParam(':fileData', $fileData, PDO::PARAM_LOB); // Storing as LOB (large object)
+                $stmt->bindParam(':user_image', $user_image, PDO::PARAM_LOB); // Storing as LOB (large object)
                 $stmt->bindParam(':role', $role);
 
                 $stmt->execute();

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $conn->exec("USE $dbname");
 
             // Prepare the SQL query to fetch the user by username
-            $sql = "SELECT id, username, email, password, phone, full_name, FileData, role FROM users WHERE username = :username";
+            $sql = "SELECT id, username, email, password, phone, full_name, user_image, role FROM users WHERE username = :username";
 
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['phone'] = $user['phone'];
                     $_SESSION['full_name'] = $user['full_name'];
                     $_SESSION['role'] = $user['role'];
-                    $_SESSION['user_image'] = $user['FileData'] ? 'data:image/jpeg;base64,' . base64_encode($user['FileData']) : '';
+                    $_SESSION['user_image'] = $user['user_image'] ? 'data:image/jpeg;base64,' . base64_encode($user['user_image']) : '';
 
                     // Redirect to the dashboard
                     header('Location: dashboard.php');

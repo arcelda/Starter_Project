@@ -6,7 +6,7 @@ CREATE TABLE users (
   password varchar(255) NOT NULL,
   full_name varchar(100) DEFAULT NULL,
   role ENUM('admin', 'staff', 'customer') NOT NULL,
-  FileData longblob DEFAULT NULL,
+  user_image longblob DEFAULT NULL,
   created_at timestamp NOT NULL DEFAULT current_timestamp(),
   updated_at timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (id)

@@ -4,6 +4,7 @@ require_once '../layer_business_logic/ProductController.php';
 $error_message = '';
 $success_message = '';
 $name = $price = $description = '';
+$product_image = ''; // Default image path
 $product_id = null;
 
 $controller = new ProductController();
@@ -16,6 +17,7 @@ if (isset($_GET['product_id'])) {
         $name = $product['name'];
         $price = $product['price'];
         $description = $product['description'];
+        $product_image = $product['product_image']; // Assuming image is stored in the 'image' column
     } else {
         $error_message = "Product not found.";
     }
@@ -24,7 +26,7 @@ if (isset($_GET['product_id'])) {
 
     if ($controller->deleteProduct($product_id)) {
         $success_message = "Product deleted successfully!";
-        header("Location: productList.php");
+        header("Location: ../display_inventory.php");
         exit();
     } else {
         $error_message = "Failed to delete product.";
@@ -60,17 +62,24 @@ if (isset($_GET['product_id'])) {
                 <?php endif; ?>
 
                 <?php if ($product): ?>
-                    <p><strong>ID:</strong> <?php echo htmlspecialchars($product['id']); ?></p>
+                    <p><strong>ID:</strong> <?php echo htmlspecialchars($product['product_id']); ?></p>
                     <p><strong>Name:</strong> <?php echo htmlspecialchars($product['name']); ?></p>
                     <p><strong>Price:</strong> $<?php echo htmlspecialchars($product['price']); ?></p>
                     <p><strong>Description:</strong> <?php echo htmlspecialchars($product['description']); ?></p>
+                    <p><strong>Image:</strong>
+                        <?php if (!empty($product_image)): ?>
+                            <img src="http://localhost/Starter_Project/<?php echo htmlspecialchars($product_image); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100">
+                        <?php else: ?>
+                            <p>No image available</p>
+                        <?php endif; ?>
+                    </p>
                 <?php endif; ?>
             </div>
             <div class="card-footer text-end">
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                     <i class="fas fa-trash-alt"></i> Delete
                 </button>
-                <a href="productList.php" class="btn btn-secondary">Back to Products</a>
+                <a href="../display_inventory.php" class="btn btn-secondary">Back to Products</a>
             </div>
         </div>
     </div>

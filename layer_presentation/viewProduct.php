@@ -59,9 +59,6 @@ if (isset($_GET['product_id'])) {
                 <p><strong>Name:</strong> <?php echo htmlspecialchars($product['name']); ?></p>
                 <p><strong>Price:</strong> $<?php echo htmlspecialchars($product['price']); ?></p>
                 <p><strong>Description:</strong> <?php echo htmlspecialchars($product['description']); ?></p>
-                <p><strong>Image Path Debug:</strong> <?php echo htmlspecialchars($product_image); ?></p>
-
-                
                 <p><strong>Image:</strong>
                     <?php if (!empty($product_image)): ?>
                         <img src="http://localhost/Starter_Project/<?php echo htmlspecialchars($product_image); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100">
