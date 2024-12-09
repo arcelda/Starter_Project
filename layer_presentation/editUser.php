@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
     $full_name = filter_var($_POST['full_name'], FILTER_SANITIZE_STRING);
     $role = filter_var($_POST['role'], FILTER_SANITIZE_STRING);
 
-    if ($controller->updateUser($username, $email, $phone, $full_name, $role)) {
+    if ($controller->updateUser($id, $username, $email, $phone, $full_name, $role)) {
         $success_message = "User updated successfully!";
     } else {
         $error_message = "Failed to update user.";

@@ -43,7 +43,7 @@ class UserModel
         return null; // Return null if nothing found or query fails
     }
 
-    public function updateUser($username, $email, $phone, $full_name, $role)
+    public function updateUser($id, $username, $email, $phone, $full_name, $role)
     {
         $query = "UPDATE " . $this->table_name . " SET username = :username, email = :email, phone = :phone, full_name = :full_name, role = :role WHERE id = :id";
         $stmt = $this->conn->prepare($query);

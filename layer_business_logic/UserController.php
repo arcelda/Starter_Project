@@ -20,9 +20,9 @@ class UserController
         return $this->model->getUserByproduct_id($id);
     }
 
-    public function updateUser($username, $email, $phone, $full_name, $role)
+    public function updateUser($id, $username, $email, $phone, $full_name, $role)
     {
-        return $this->model->updateUser($username, $email, $phone, $full_name, $role);
+        return $this->model->updateUser($id, $username, $email, $phone, $full_name, $role);
     }
 
     public function deleteUser($id)

@@ -31,7 +31,7 @@
                     include './includes/nav.php';
                 }          
                 ?>
-                <main class="p-3" style="width: 80%;">
+                <main class="p-3" style="width: 70%;">
                     <?php include './includes/main_display_inventory.php'; ?>
                 </main>
                 <?php include './includes/aside.php'; ?>

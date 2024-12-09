@@ -3,8 +3,7 @@
     <div class="card">
         <div class="card-body">
 
-            <p>Welcome to our website</p>
-            <p> </p>
+            <p class="register-page-font">An alternative place to buy school merchandise!</p>
 
         </div>
 
