@@ -61,7 +61,7 @@ if (isset($_GET['product_id'])) {
                 <p><strong>Description:</strong> <?php echo htmlspecialchars($product['description']); ?></p>
                 <p><strong>Image:</strong>
                     <?php if (!empty($product_image)): ?>
-                        <img src="http://localhost/Starter_Project/<?php echo htmlspecialchars($product_image); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100">
+                        <img src="../<?php echo htmlspecialchars($product_image); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>" width="100">
                     <?php else: ?>
                         <p>No image available</p>
                     <?php endif; ?>

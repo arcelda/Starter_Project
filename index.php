@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +67,7 @@
                                                 <h6 class = "mb-4"> This is Our Store Project </h6>
                                                 <p class = "small mb-0"> 
                                                     (Add some text explaining the Database of Store and What is sold)
-                                                    This store sells clothing to all differnet shapes and sizes of people
+                                                    This store sells clothing to all different shapes and sizes of people
                                                     We have Hoodies, garments, and others. We Will add more items as the orders come in.
                                                     
                                                 </p>

@@ -27,6 +27,7 @@ if (isset($_GET['product_id'])) {
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+    $originalImage = $_POST['original_image'];
 
     if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = '../images/'; // Change the directory to 'images/'
@@ -40,7 +41,11 @@ if (isset($_GET['product_id'])) {
             $product_image = $uploadFile; // Save the path to the image
         } else {
             $error_message = "Error uploading image.";
+            $product_image = $originalImage; // Fallback to original image on upload error
         }
+    }else {
+        // No new image uploaded, use the original image
+        $product_image = $originalImage;
     }
 
     if ($controller->updateProduct($product_id, $name, $price, $description, $product_image)) {
@@ -86,7 +91,7 @@ if (isset($_GET['product_id'])) {
                         <?php if (!empty($product_image)): ?>
                             <div class="mb-3">
                                 <label class="form-label">Product Image:</label>
-                                <img src="<?php echo 'http://localhost/Starter_Project/' . htmlspecialchars($product_image); ?>" alt="Current Image" width="100">
+                                <img src="<?php echo '../' . htmlspecialchars($product_image); ?>" alt="Current Image" width="100">
                             </div>
                         <?php endif; ?>
 
@@ -115,6 +120,7 @@ if (isset($_GET['product_id'])) {
                         <div class="mb-3">
                             <label for="product_image" class="form-label">Image:</label>
                             <input type="file" id="product_image" name="product_image" class="form-control">
+                            <input type="hidden" name="original_image" value="<?php echo htmlspecialchars($product_image); ?>">
                         </div>
 
                         <div class="text-center">
