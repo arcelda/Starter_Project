@@ -6,7 +6,7 @@ $error_message = '';
 $success_message = '';
 $username = $email = $phone = $full_name = $role = ''; // Default empty values
 
-// Check if product_id is set in the URL for initial loading
+// Check if id is set in the URL for initial loading
 if (isset($_GET['id'])) {
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
     $user = $controller->viewUser($id);
@@ -29,6 +29,12 @@ if (isset($_GET['id'])) {
     $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
     $full_name = filter_var($_POST['full_name'], FILTER_SANITIZE_STRING);
     $role = filter_var($_POST['role'], FILTER_SANITIZE_STRING);
+    $originalRole = filter_var($_POST['original_role'], FILTER_SANITIZE_STRING);
+
+    if (empty($role)) {
+        // If the role field is empty (not selected), use the original role
+        $role = $originalRole;
+    }
 
     if ($controller->updateUser($id, $username, $email, $phone, $full_name, $role)) {
         $success_message = "User updated successfully!";
@@ -65,7 +71,7 @@ if (isset($_GET['id'])) {
                 <?php elseif (!empty($success_message)): ?>
                     <p class="text-success text-center"><?php echo $success_message; ?></p>
                 <?php else: ?>
-                    <form method="POST" action="editUser.php">
+                    <form method="POST" action="editUser.php" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
 
                         <div class="mb-3">
@@ -94,12 +100,13 @@ if (isset($_GET['id'])) {
 
                         <div class="mb-3">
                             <label for="role" class="form-label">Select Role:</label>
-                            <select name="role" id="role" required value="<?php echo htmlspecialchars($role); ?>">
+                            <select name="role" id="role">
                                 <option disabled selected value></option>
-                                <option value="customer">Customer</option>
-                                <option value="admin">Admin</option>
-                                <option value="staff">Staff</option>
+                                <option value="customer" <?php echo $role === 'customer' ? 'selected' : ''; ?>>Customer</option>
+                                <option value="admin" <?php echo $role === 'admin' ? 'selected' : ''; ?>>Admin</option>
+                                <option value="staff" <?php echo $role === 'staff' ? 'selected' : ''; ?>>Staff</option>
                             </select>
+                            <input type="hidden" name="original_role" value="<?php echo htmlspecialchars($role); ?>">
                         </div>
 
                         <div class="text-center">
