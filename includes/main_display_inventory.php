@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <h2>Here is the inventory</h2>
+    <h2 class="site-font">Here is the inventory</h2>
       <div class="card">
           <div class="card-body">
               <?php

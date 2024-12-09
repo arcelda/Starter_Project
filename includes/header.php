@@ -34,9 +34,16 @@ $userImage = $_SESSION['user_image'];
         margin-top: 5px;
         font-size: 14px;
     }
+
+    .bg {
+        background-image: url('./images_non_inventory/ccsuLogo.jpg'); /* Path to your image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-size: contain ; /* Ensures the image covers the entire element */
+        background-position: left; /* Centers the image */
+    }
 </style>
 
-<header class="text-white text-center p-3">
+<header class="bg text-white text-center p-3">
     <h1>Maria Sanford Marketplace </h1>
     <?php if (isset($_SESSION['user_id'])): ?>
         <!-- User information displayed at the top right corner -->

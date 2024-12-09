@@ -8,7 +8,7 @@ body {
 
 
 header {
-    background-color: #321290;
+    background-color: #01529A;
     margin-top: auto;
     height: 130px;
     display: flex;
@@ -147,13 +147,13 @@ h2 {
 
 
 .container>.card>.card-body {
-    background-color: #2a549d;
+    background-color: #01529A;
     /* Your desired background color */
 }
 
 
 #aside {
-    background-color: #1d5784;
+    background-color: #01529A;
 }
 
 /* Responsive grid for larger screens */
