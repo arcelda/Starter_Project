@@ -14,9 +14,11 @@ $users = $controller->listUsers();
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
-    <style>
+    <!-- userTable -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--<style>
         /* Basic table styling */
         table.dataTable {
             width: 100%;
@@ -33,12 +35,12 @@ $users = $controller->listUsers();
         table.dataTable th {
             background-color: #f4f4f4;
         }
-    </style>
+    </style>-->
 </head>
 
 <body>
     <div class="container">
-        <h1>User List</h1>
+        <h1 class="register-page-font">User List</h1>
 
         <table id="userTable" class="display responsive nowrap" style="width:100%">
             <thead>

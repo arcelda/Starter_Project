@@ -25,6 +25,79 @@ footer {
     height: 50px;
 }
 
+#productTable thead th {
+    color: #ffffff; /* White text for table headers */
+    background-color: #333333; /* Dark background for headers */
+}
+
+#productTable tbody td {
+    color: #000000; /* Black text for table cells */
+}
+
+/* Change the color of the "Search" label */
+#productTable_filter label {
+    color: white; /* Blue text for the search label */
+}
+
+/* Change the color of the "Entries" label */
+#productTable_length label {
+    color: white; /* Blue text for entries label */
+}
+
+/* Change the color of the pagination controls (Next, Previous) */
+#productTable__paginate .paginate_button {
+    color: rgb(0, 0, 0) !important; /* Blue text for pagination buttons */
+    background-color: #007bff;
+}
+
+
+/* Optional: Change the hover color for pagination buttons */
+#productTable_paginate .paginate_button:hover {
+    color: #098dfa !important; /* White text on hover */
+    background-color: white; /* Blue background on hover */
+}
+
+/* Change the color of the info text (e.g., "Showing 1 to 10 of 50 entries") */
+#productTable_info {
+    color: white; /* Blue text for info label */
+}
+
+#userTable thead th {
+    color: #ffffff; /* White text for table headers */
+    background-color: #333333; /* Dark background for headers */
+}
+
+#userTable tbody td {
+    color: #000000; /* Black text for table cells */
+}
+
+/* Change the color of the "Search" label */
+#userTable_filter label {
+    color: white; /* Blue text for the search label */
+}
+
+/* Change the color of the "Entries" label */
+#userTable_length label {
+    color: white; /* Blue text for entries label */
+}
+
+/* Change the color of the pagination controls (Next, Previous) */
+#userTable_paginate .paginate_button {
+    color: rgb(0, 0, 0) !important; /* Blue text for pagination buttons */
+    background-color: #007bff;
+}
+
+/* Optional: Change the hover color for pagination buttons */
+#userTable_paginate .paginate_button:hover {
+    color: #098dfa !important; /* White text on hover */
+    background-color: white; /* Blue background on hover */
+}
+
+/* Change the color of the info text (e.g., "Showing 1 to 10 of 50 entries") */
+#userTable_info {
+    color: white; /* Blue text for info label */
+}
+
 .login-page {
     background: radial-gradient(circle, rgba(0,212,255,1) 16%, rgba(9,28,121,0.6306897759103641) 48%, rgba(8,23,97,0.9360119047619048) 91%);
 }
