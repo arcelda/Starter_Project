@@ -44,17 +44,24 @@ footer {
     color: white; /* Blue text for entries label */
 }
 
-/* Change the color of the pagination controls (Next, Previous) */
-#productTable__paginate .paginate_button {
-    color: rgb(0, 0, 0) !important; /* Blue text for pagination buttons */
-    background-color: #007bff;
+.active>.page-link, .page-link.active {
+    color: black;
+    background-color: #979797;
+    background-origin: padding-box;
+    background-image: linear-gradient(rgb(255, 255, 255) 0%, rgb(220, 220, 220) 100%);
 }
 
-
 /* Optional: Change the hover color for pagination buttons */
-#productTable_paginate .paginate_button:hover {
-    color: #098dfa !important; /* White text on hover */
-    background-color: white; /* Blue background on hover */
+#productTable_previous:hover .page-link{
+    color: #ffffff; /* Change text color on hover */
+    background-color: #007bff; /* Change background color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+#productTable_next:hover .page-link{
+    color: #ffffff; /* Change text color on hover */
+    background-color: #007bff; /* Change background color on hover */
+    cursor: pointer; /* Show pointer cursor on hover */
 }
 
 /* Change the color of the info text (e.g., "Showing 1 to 10 of 50 entries") */
@@ -76,9 +83,19 @@ footer {
     color: white; /* Blue text for the search label */
 }
 
+#userTable_filter input {
+    color: #000000;
+    background-color: white; /* Blue text for the search label */
+}
+
 /* Change the color of the "Entries" label */
 #userTable_length label {
     color: white; /* Blue text for entries label */
+}
+
+#userTable_length.dataTables_length select {
+    color: black; /* Blue text for entries label */
+    background-color: white;
 }
 
 /* Change the color of the pagination controls (Next, Previous) */

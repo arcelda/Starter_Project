@@ -18,6 +18,8 @@ $products = $controller->listProducts();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- DataTables CSS with Bootstrap styling -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+    <!-- productTable -->
+    <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
@@ -84,6 +86,8 @@ $products = $controller->listProducts();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <!-- productTable -->
+    <link rel="stylesheet" href="css/styles.css">
     <script>
     $(document).ready(function() {    
         $('#productTable').DataTable({

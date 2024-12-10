@@ -17,25 +17,6 @@ $users = $controller->listUsers();
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <!-- userTable -->
     <link rel="stylesheet" href="css/styles.css">
-
-    <!--<style>
-        /* Basic table styling */
-        table.dataTable {
-            width: 100%;
-            margin: 20px 0;
-            border-collapse: collapse;
-        }
-
-        table.dataTable th,
-        table.dataTable td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-
-        table.dataTable th {
-            background-color: #f4f4f4;
-        }
-    </style>-->
 </head>
 
 <body>
