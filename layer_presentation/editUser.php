@@ -29,11 +29,17 @@ if (isset($_GET['id'])) {
     $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
     $full_name = filter_var($_POST['full_name'], FILTER_SANITIZE_STRING);
     $role = filter_var($_POST['role'], FILTER_SANITIZE_STRING);
+    $originalPhone = filter_var($_POST['original_phone'], FILTER_SANITIZE_STRING);
     $originalRole = filter_var($_POST['original_role'], FILTER_SANITIZE_STRING);
 
     if (empty($role)) {
         // If the role field is empty (not selected), use the original role
         $role = $originalRole;
+    }
+
+    if (empty($phone)) {
+        // If the role field is empty (not selected), use the original role
+        $phone = $originalPhone;
     }
 
     if ($controller->updateUser($id, $username, $email, $phone, $full_name, $role)) {
@@ -90,6 +96,7 @@ if (isset($_GET['id'])) {
                             <label for="phone" class="form-label">Phone:</label>
                             <input type="text" id="phone" name="phone" class="form-control" required
                                 value="<?php echo htmlspecialchars($phone); ?>">
+                            <input type="hidden" name="original_phone" value="<?php echo htmlspecialchars($phone); ?>">
                         </div>
 
                         <div class="mb-3">
