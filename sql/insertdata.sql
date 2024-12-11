@@ -6,14 +6,14 @@ INSERT INTO users (username, email, phone, password, full_name, role) VALUES
 ('marrybarry85', 'marybclark@gmail.com', '233-852-9105', 'password@123', 'Mary Clark', 'customer'),
 ('cooldudez95', 'supercooldudez95@gmail.com', '222-349-8264', 'password@123', 'Matt Dudez', 'customer');
 
--- Products
-INSERT INTO products (name, price, description) VALUES
-('Black CCSU Hoodie', 34.99, 'One of our more popular items!'),
-('Blue CCSU Shirt', 19.99, 'One of our more popular items!'),
-('Gray CCSU hoodie', 29.99, 'One of our more popular items!'),
-('Gray CCSU V-neck', 19.99, 'One of our more popular items!'),
-('CCSU Hat', 24.99, 'One of our more popular items!'),
-('CCSU Leggings', 24.99, 'One of our more popular items!');
+INSERT INTO products (name, price, description, product_image) VALUES
+('Black CCSU Hoodie', 34.99, 'One of our more popular items!', 'images/black_CCSU_hoodie.jpg'),
+('Blue CCSU Shirt', 19.99, 'One of our more popular items!', 'images/blue_CCSU_shirt.jpg'),
+('Gray CCSU hoodie', 29.99, 'One of our more popular items!', 'images/gray_CCSU_hoodie.jpg'),
+('Gray CCSU V-neck', 19.99, 'One of our more popular items!', 'images/gray_CCSU_v_neck.jpg'),
+('CCSU Hat', 24.99, 'One of our more popular items!', 'images/hat_CCSU.jpg'),
+('CCSU Leggings', 24.99, 'One of our more popular items!', 'images/leggings_CCSU.jpg');
+
 
 -- Cart
 INSERT INTO cart (user_id, product_id, quantity) VALUES
