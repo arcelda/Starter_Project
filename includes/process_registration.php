@@ -21,6 +21,11 @@ if (isset($conn)) {
         $phone = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
         $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : null; // Hash the password
         $full_name = !empty($_POST['full_name']) ? trim($_POST['full_name']) : null;
+        
+        //Make sure each field is filled
+        if(!$username || !$email || !$password){
+            die("Error: Missing require fields.");
+        }
 
         // Check if a file is uploaded and available
         if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {

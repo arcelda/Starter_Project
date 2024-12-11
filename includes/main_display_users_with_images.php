@@ -102,6 +102,15 @@ if (isset($conn)) {
         </table>
     </div>
 
+    <div class = "card text-center" style = "width: 10rem;">
+        <img src = "<?php echo $userImage; ?>" class = "card-img-top" alt = " Name">
+        <div class = "card-body">
+
+    <!-- Display who is logged in and their role -->
+        <p class = "text-uppercase font-weight-bold" > You are A <?php echo $role; ?></p>
+        </div>
+
+   
     <!-- Include jQuery and DataTables JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

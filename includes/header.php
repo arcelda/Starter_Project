@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 // Retrieve user data from the session
 $fullName = $_SESSION['full_name'];
 $userImage = $_SESSION['user_image'];
+$role = $_SESSION['role'];
 ?>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <style>
