@@ -17,7 +17,7 @@ if (isset($_GET['cart_item_id'])) {
     $controller->removeProductFromCart($cart_item_id); // Call the controller to remove the item
 
     // Redirect back to the cart page
-    header('Location: /display_cart.php'); 
+    header('Location: ../display_cart.php'); 
     exit();
 } else {
     // Handle case where cart_item_id is not provided
