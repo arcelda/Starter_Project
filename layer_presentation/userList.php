@@ -47,16 +47,20 @@ $users = $controller->listUsers();
                             <td><?php echo htmlspecialchars($user['role']); ?></td>
                             <td>
                                 
-                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'staff'): ?>
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                                     <a href="layer_presentation/editUser.php?id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
-                                        <a href="layer_presentation/deleteUser.php?id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm">
-                                        <i class="fas fa-trash"></i>
-                                        </a>
-                                    <?php endif; ?>
+                                    <a href="layer_presentation/deleteUser.php?id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'staff'): ?>
+                                    <a href="layer_presentation/editUser.php?id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                    </a>
                                 <?php endif; ?>
 
                             </td>
