@@ -1,4 +1,6 @@
 <?php
+
+session_start(); // Ensure session is started
 require_once '../layer_business_logic/ProductController.php';
 
 $controller = new ProductController();

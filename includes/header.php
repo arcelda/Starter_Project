@@ -35,6 +35,22 @@ $userImage = $_SESSION['user_image'];
         font-size: 14px;
     }
 
+    .checkout-cart {
+        position: absolute;
+        top: 35px;
+        right: 80px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .checkout-cart img {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin: 5px 0;
+    }
+
     .bg {
         background-image: url('./images_non_inventory/ccsuLogo.jpg'); /* Path to your image */
         background-repeat: no-repeat; /* Prevents the image from repeating */
@@ -46,6 +62,11 @@ $userImage = $_SESSION['user_image'];
 <header class="bg text-white text-center p-3">
     <h1>Maria Sanford Marketplace </h1>
     <?php if (isset($_SESSION['user_id'])): ?>
+        <div class="checkout-cart">
+            <a href="display_cart.php">
+                <img src="./images_non_inventory/checkout_cart.png" alt="Head to your cart">
+            </a>
+        </div>
         <!-- User information displayed at the top right corner -->
         <div class="user-info">
             <span><?php echo htmlspecialchars($fullName); ?></span>

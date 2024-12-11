@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../layer_business_logic/ProductController.php';
 
 $controller = new ProductController();
@@ -38,6 +39,7 @@ $products = $controller->listProducts();
                         <th>Description</th>
                         <th>Image</th>
                         <th>Actions</th>
+                        <th>Add to Cart</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,6 +76,24 @@ $products = $controller->listProducts();
                                     </a>
                                 <?php endif; ?>
                             </td>
+                            <td>
+                                <!-- Quantity controls -->
+                                <div class="input-group mb-3" style="max-width: 150px;">
+                                    <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
+                                    <input type="number" class="form-control text-center quantity-input" 
+                                        value="1" min="1" max="100" 
+                                        data-product-id="<?php echo $product['product_id']; ?>">
+                                    <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
+                                </div>
+                                <!-- Add to Cart Form -->
+                                <form method="POST" action="layer_presentation/add_to_cart.php">
+                                    <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                                    <input type="hidden" name="quantity" value="1"> <!-- Set default to 1 -->
+                                    <button type="submit" class="btn btn-primary btn-sm">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     <?php } // End of the foreach loop ?>
                 </tbody>
@@ -102,6 +122,32 @@ $products = $controller->listProducts();
             }
         });
     });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Synchronize visible input with the hidden field
+            $('.quantity-input').on('input', function() {
+                const form = $(this).closest('form');
+                form.find('input[name="quantity"]').val($(this).val());
+            });
+
+            // Increment quantity
+            $('.plus-btn').on('click', function() {
+                const input = $(this).siblings('.quantity-input');
+                const currentValue = parseInt(input.val()) || 1;
+                input.val(currentValue + 1).trigger('input');
+            });
+
+            // Decrement quantity
+            $('.minus-btn').on('click', function() {
+                const input = $(this).siblings('.quantity-input');
+                const currentValue = parseInt(input.val()) || 1;
+                if (currentValue > 1) {
+                    input.val(currentValue - 1).trigger('input');
+                }
+            });
+        });
     </script>
 </body>
 

@@ -6,6 +6,12 @@ $success_message = '';
 $name = $price = $description = ''; // Default empty values
 $product_image = ''; // Default image path
 
+if (!isset($_POST['quantity']) || !is_numeric($_POST['quantity']) || (int)$_POST['quantity'] <= 0) {
+    throw new Exception("Invalid quantity.");
+}
+
+$quantity = (int)$_POST['quantity'];
+
 // Check if product_id is set in the URL for initial loading
 if (isset($_GET['product_id'])) {
     $product_id = filter_var($_GET['product_id'], FILTER_SANITIZE_NUMBER_INT);
@@ -68,13 +74,90 @@ if (isset($_GET['product_id'])) {
                 </p>
             </div>
             <div class="card-footer text-end">
-                <a href="editProduct.php?product_id=<?php echo $product_id; ?>" class="btn btn-warning">Edit</a>
-                <a href="../display_inventory.php" class="btn btn-secondary">Back to Products</a>
+                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                    <a href="layer_presentation/editProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                <?php endif; ?>                    
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <!-- Back to Products Button -->
+                    <a href="../display_inventory.php" class="btn btn-secondary">Back to Products</a>
+
+                    <!-- Quantity Controls -->
+                    <div class="input-group mb-3" style="max-width: 150px;">
+                        <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
+                        <input type="number" class="form-control text-center quantity-input" 
+                            value="1" min="1" max="100" 
+                            data-product-id="<?php echo $product['product_id']; ?>" id="quantity-input"> <!-- Ensure this ID is correct -->
+                        <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
+                    </div>
+
+                    <!-- Add to Cart Form -->
+                    <form action="add_to_cart.php" method="POST">
+                        <input type="number" name="quantity" id="quantity-input" value="1" min="1" required>
+                        <button type="submit">Add to Cart</button>
+                    </form>
+
+
+
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Add JavaScript to handle the quantity change -->
+    <script>
+        document.querySelector('form').onsubmit = function() {
+            var quantity = document.querySelector('#quantity-input').value;
+            document.querySelector('input[name="quantity"]').value = quantity; // Make sure it's updated before submission
+        };
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const minusBtns = document.querySelectorAll(".minus-btn");
+            const plusBtns = document.querySelectorAll(".plus-btn");
+            const quantityInputs = document.querySelectorAll(".quantity-input");
+
+            // Handle plus and minus buttons
+            minusBtns.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const input = btn.nextElementSibling;
+                    let currentValue = parseInt(input.value, 10) || 1;
+                    if (currentValue > 1) {
+                        input.value = currentValue - 1;
+                        syncQuantity(input);
+                    }
+                });
+            });
+
+            plusBtns.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    const input = btn.previousElementSibling;
+                    let currentValue = parseInt(input.value, 10) || 1;
+                    if (currentValue < 100) {
+                        input.value = currentValue + 1;
+                        syncQuantity(input);
+                    }
+                });
+            });
+
+            // Function to sync quantity input value with the hidden form field
+            function syncQuantity(input) {
+                const form = input.closest("form");
+                const hiddenQuantityInput = form.querySelector("input[name='quantity']");
+                hiddenQuantityInput.value = input.value; // Update hidden quantity
+            }
+
+            // Ensure the hidden input is synced on manual input
+            quantityInputs.forEach((input) => {
+                input.addEventListener("input", function () {
+                    syncQuantity(input);
+                });
+            });
+        });
+
+    </script>
 </body>
 
 </html>

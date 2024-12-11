@@ -21,3 +21,21 @@ INSERT INTO products (product_id, name, price, description, product_image) VALUE
 (4, 'Gray CCSU V-neck', 19.99, 'One of our more popular items!', 'images/gray_CCSU_v_neck.jpg'),
 (5, 'CCSU Hat', 24.99, 'One of our more popular items!', 'images/hat_CCSU.jpg'),
 (6, 'CCSU Leggings', 24.99, 'One of our more popular items!', 'images/leggings_CCSU.jpg');
+
+INSERT INTO users (username, email, phone, password, full_name, role)
+VALUES
+('admin01', 'admin@example.com', '1234567890', 'securepassword', 'Admin User', 'admin'),
+('customer01', 'customer@example.com', '0987654321', 'securepassword', 'Customer User', 'customer');
+
+/* If you have duplicates of the account use these */
+
+SELECT username, COUNT(*) AS count FROM users
+GROUP BY username
+HAVING count > 1;
+
+DELETE FROM users
+WHERE id NOT IN (
+  SELECT MIN(id)
+  FROM users
+  GROUP BY username
+);

@@ -8,54 +8,52 @@ $name = $price = $description = ''; // Default empty values
 $product_image = ''; // Default image path
 
 // Check if product_id is set in the URL for initial loading
-if (isset($_GET['product_id'])) {
-    $product_id = filter_var($_GET['product_id'], FILTER_SANITIZE_NUMBER_INT);
-    $product = $controller->viewProduct($product_id);
+    if (isset($_GET['product_id'])) {
+        $product_id = filter_var($_GET['product_id'], FILTER_SANITIZE_NUMBER_INT);
+        $product = $controller->viewProduct($product_id);
 
-    if ($product) {
-        // Populate variables with product data
-        $name = $product['name'];
-        $price = $product['price'];
-        $description = $product['description'];
-        $product_image = $product['product_image']; // Assuming image is stored in the 'image' column
-    } else {
-        $error_message = "Product not found.";
-    }
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Process the form submission to update product
-    $product_id = filter_var($_POST['product_id'], FILTER_SANITIZE_NUMBER_INT);
-    $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-    $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
-    $originalImage = $_POST['original_image'];
-
-    if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = '../images/'; // Change the directory to 'images/'
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0777, true); // Create the 'images' folder if it doesn't exist
-        }
-        $imageFileName = basename($_FILES['product_image']['name']);
-        $uploadFile = $uploadDir . $imageFileName;
-        
-        if (move_uploaded_file($_FILES['product_image']['tmp_name'], $uploadFile)) {
-            $product_image = $uploadFile; // Save the path to the image
+        if ($product) {
+            // Populate variables with product data
+            $name = $product['name'];
+            $price = $product['price'];
+            $description = $product['description'];
+            $product_image = $product['product_image']; // Assuming image is stored in the 'image' column
         } else {
-            $error_message = "Error uploading image.";
-            $product_image = $originalImage; // Fallback to original image on upload error
+            $error_message = "Product not found.";
         }
-    }else {
-        // No new image uploaded, use the original image
-        $product_image = $originalImage;
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Process the form submission to update product
+        $product_id = filter_var($_POST['product_id'], FILTER_SANITIZE_NUMBER_INT);
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+        $price = filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+        $originalImage = $_POST['original_image'];
+
+        if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = '../images/'; // Change the directory to 'images/'
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true); // Create the 'images' folder if it doesn't exist
+            }
+            $imageFileName = basename($_FILES['product_image']['name']);
+            $uploadFile = $uploadDir . $imageFileName;
+            
+            if (move_uploaded_file($_FILES['product_image']['tmp_name'], $uploadFile)) {
+                $product_image = $uploadFile; // Save the path to the image
+            } else {
+                $error_message = "Error uploading image.";
+                $product_image = $originalImage; // Fallback to original image on upload error
+            }
+        }else {
+            // No new image uploaded, use the original image
+            $product_image = $originalImage;
+        }
+
+        if ($controller->updateProduct($product_id, $name, $price, $description, $product_image)) {
+            $success_message = "Product updated successfully!";
+        } else {
+            $error_message = "Failed to update product.";
+        }
     }
-
-    if ($controller->updateProduct($product_id, $name, $price, $description, $product_image)) {
-        $success_message = "Product updated successfully!";
-    } else {
-        $error_message = "Failed to update product.";
-    }
-}
-
-
 ?>
 
 <!DOCTYPE html>

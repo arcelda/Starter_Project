@@ -116,6 +116,89 @@ footer {
     color: white; /* Blue text for info label */
 }
 
+#cartTable thead th {
+    color: #ffffff; /* White text for table headers */
+    background-color: #333333; /* Dark background for headers */
+}
+
+#cartTable tbody td {
+    color: #000000; /* Black text for table cells */
+}
+
+/* Change the color of the "Search" label */
+#cartTable_filter label {
+    color: white; /* Blue text for the search label */
+}
+
+#cartTable_filter input {
+    color: #000000;
+    background-color: white; /* Blue text for the search label */
+}
+
+/* Change the color of the "Entries" label */
+#cartTable_length label {
+    color: white; /* Blue text for entries label */
+}
+
+#cartTable_length.dataTables_length select {
+    color: black; /* Blue text for entries label */
+    background-color: white;
+}
+
+/* Change the color of the pagination controls (Next, Previous) */
+#cartTable_paginate .paginate_button {
+    color: rgb(0, 0, 0) !important; /* Blue text for pagination buttons */
+    background-color: #007bff;
+}
+
+/* Optional: Change the hover color for pagination buttons */
+#cartTable_paginate .paginate_button:hover {
+    color: #098dfa !important; /* White text on hover */
+    background-color: white; /* Blue background on hover */
+}
+
+/* Change the color of the info text (e.g., "Showing 1 to 10 of 50 entries") */
+#cartTable_info {
+    color: white; /* Blue text for info label */
+}
+
+/* Ensure cart table and message are responsive */
+.cart-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.cart-message {
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    white-space: nowrap; /* Prevents wrapping */
+    overflow: hidden; /* Ensures no overflow */
+    text-overflow: ellipsis; /* Adds ellipsis if the content is too long */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 767px) {
+    .cart-message {
+        white-space: normal; /* Allow text to wrap on small screens */
+        word-wrap: break-word; /* Ensure long words break properly */
+        font-size: 14px; /* Adjust font size for better fit */
+    }
+
+    table#cartTable {
+        font-size: 12px; /* Adjust table font size for smaller screens */
+    }
+}
+
+
+.cart-wrapper {
+    max-width: 80%; /* Or another suitable percentage */
+    margin: 0 auto; /* Centers the wrapper */
+    text-align: center;
+}
+
+
 .login-page {
     background: radial-gradient(circle, rgba(0,212,255,1) 16%, rgba(9,28,121,0.6306897759103641) 48%, rgba(8,23,97,0.9360119047619048) 91%);
 }
