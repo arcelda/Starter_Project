@@ -24,7 +24,7 @@
                         <div class = "card-body p-md-5 mx-md-4">
                             <div class = "text-center login-page-font">
                                 <h3 class = " mt-1 mb-5 pb-1"> Maria Sanford Marketplace </h3>
-                                <img src = "http://localhost:3000/images_non_inventory/ccsuLogo.jpg" style ="width: 200px;" alt = "logo">    
+                                <img src = "images_non_inventory/ccsuLogo.jpg" style ="width: 200px;" alt = "logo">    
                                                                     
                                 <h2 class="text-center">Login</h2>
                                 <div data-mdv-input-init class = "form-outline mb-3">
