@@ -64,8 +64,8 @@ $products = $controller->listProducts();
                                         <i class="fas fa-add"></i>
                                     </a>
                                 <?php endif; ?>
-                                <a href="layer_presentation/viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
-                                    <i class="fas fa-eye"></i>
+                                <!-- <a href="layer_presentation/viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
+                                    <i class="fas fa-eye"></i> -->
                                 </a>
                                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                                     <a href="layer_presentation/editProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
