@@ -27,7 +27,7 @@ try {
     $cartController->addProduct($product_id, $quantity);
 
     // Redirect to cart display page
-    header('Location: /display_Cart.php');
+    header('Location: ../display_Cart.php');
     exit();
 
 } catch (Exception $e) {
