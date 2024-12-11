@@ -46,12 +46,23 @@ $users = $controller->listUsers();
                             <td><?php echo htmlspecialchars($user['full_name']); ?></td>
                             <td><?php echo htmlspecialchars($user['role']); ?></td>
                             <td>
-                                <a href="layer_presentation/editUser.php?id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
+                                
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
+                                    <a href="layer_presentation/editUser.php?id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="layer_presentation/deleteUser.php?id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm">
+                                    </a>
+
+                                    <a href="layer_presentation/deleteUser.php?id=<?php echo $user['id']; ?>" class="btn btn-danger btn-sm">
                                     <i class="fas fa-trash"></i>
-                                </a>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'staff'): ?>
+                                    <a href="layer_presentation/editUser.php?id=<?php echo $user['id']; ?>" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                    </a>
+                                <?php endif; ?>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
