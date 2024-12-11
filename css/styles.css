@@ -6,7 +6,6 @@ body {
     font-family: 'Candara';
 }
 
-
 header {
     background-color: #01529A;
     margin-top: auto;
@@ -17,6 +16,9 @@ header {
     align-items: center;
     /* Vertically centers the text */
     font-family: 'Candara';
+    text-align: center;
+    padding: 1rem;
+    color: white;
 }
 
 footer {
