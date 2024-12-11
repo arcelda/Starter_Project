@@ -37,7 +37,7 @@
                     
                 }          
                 ?>
-                <div class = "
+               
                 
                 <?php include './includes/aside.php'; ?>
             </div>
