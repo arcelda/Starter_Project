@@ -23,15 +23,22 @@
 
                 if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'admin')) { 
                     include './includes/nav_admin.php';
+                    include './includes/main_display_users.php';
+                    
                 }
                 else if ((isset($_SESSION['role']) &&  $_SESSION['role'] == 'staff')){
                     include './includes/nav_staff.php';
+                     include './includes/main_display_users.php';
                 }
                 else{
                     include './includes/nav.php';
+                    echo '<script> You do not have permissions for this </script>';
+                    
+                    
                 }          
                 ?>
-                <?php include './includes/main_display_users.php'; ?>
+                <div class = "
+                
                 <?php include './includes/aside.php'; ?>
             </div>
         </div>

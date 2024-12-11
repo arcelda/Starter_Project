@@ -69,7 +69,7 @@ $role = $_SESSION['role'];
     /* Media query for smaller screens */
     @media (max-width: 768px) {
         header {
-            padding: 1rem;
+            padding: 2rem;
         }
 
         .user-info, .checkout-cart {
