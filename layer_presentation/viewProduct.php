@@ -44,7 +44,7 @@ if (isset($_GET['product_id'])) {
 
 <body class="bg-light">
     <div class="container my-5">
-        <div class="card shadow-sm">
+        <div class="card shadow-lg">
             <div class="card-header bg-primary text-white">
                 <h1 class="card-title mb-0">Product Details</h1>
             </div>
