@@ -27,13 +27,76 @@ footer {
     height: 50px;
 }
 
+#productTable thead {
+    box-sizing: border-box;
+    height: 45px;
+}
+
 #productTable thead th {
     color: #ffffff; /* White text for table headers */
     background-color: #333333; /* Dark background for headers */
 }
 
-#productTable tbody td {
+#productTable tbody {
+    display: table-row-group;
+    border: #000000;
     color: #000000; /* Black text for table cells */
+    border-bottom-color: #000000;
+}
+
+#productTable tbody {
+    display: table-row-group;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border: #000000;
+    border-bottom-color: #000000;
+}
+
+#productTable tbody > th{
+    padding: 8px 10px;
+}
+
+#productTable tbody > tr{
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    text-align: center;  
+}
+
+
+#productTable tbody > tr > td {
+    border-bottom: 1px solid #ddd !important;
+    border-left: 1px solid #ddd;
+}
+
+#productTable tbody > tr.odd >.sorting_1{
+    background-color: #f1f1f100;
+}
+
+#productTable tbody > tr.odd{
+    background-color: #f1f1f1f8;
+}
+
+#productTable tbody > tr:hover{
+    background-color: #f1f1f1cc;
+}
+
+#productTable tbody > tr.even{
+    border: #000000;
+    background-color: whitesmoke;
+    border-bottom-color: #000000;
+}
+
+#productTable tbody > tr.child{
+    border: #000000;
+    background-color: whitesmoke;
+    border-bottom-color: #000000;
+}
+
+#productTable tbody > tr.child:hover.selected{
+    border: #000000;
+    background-color: #aab7d1 !important;
+    border-bottom-color: #000000;
 }
 
 /* Change the color of the "Search" label */
@@ -71,6 +134,85 @@ footer {
 #productTable_info {
     color: white; /* Blue text for info label */
 }
+
+#productTable_paginate {
+    float: right;
+    text-align: right;
+    padding: .25em;
+}
+
+#productTable_previous {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: .5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+
+    color: rgb(0, 0, 0) !important;
+    background-color: #007bff;
+}
+
+#productTable_paginate > span{
+
+    background: linear-gradient(to bottom, white 0%, #dcdcdc 100%);
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: .5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+#productTable_previous.disabled:hover{
+    color: rgb(0, 0, 0) !important;
+    background-color: whitesmoke;
+}
+
+#productTable_next{
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: .5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+
+    color: rgb(0, 0, 0) !important;
+    background-color: #007bff;
+}
+
+#productTable_next.disabled:hover{
+    color: rgb(0, 0, 0) !important;
+    background-color: whitesmoke;
+}
+
 
 #userTable thead th {
     color: #ffffff; /* White text for table headers */

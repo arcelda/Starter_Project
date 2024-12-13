@@ -14,7 +14,7 @@ $products = $controller->listProducts();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product List</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- DataTables CSS with Bootstrap styling -->
@@ -30,7 +30,7 @@ $products = $controller->listProducts();
             <h1 class="register-page-font">Product List</h1>
         </div>
         <div class="table-responsive mt-3">
-            <table id="productTable" class="table table-striped table-bordered">
+            <table id="productTable" class="display responsive nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th>Product ID</th>
@@ -64,8 +64,8 @@ $products = $controller->listProducts();
                                         <i class="fas fa-add"></i>
                                     </a>
                                 <?php endif; ?>
-                                <!-- <a href="layer_presentation/viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
-                                    <i class="fas fa-eye"></i> -->
+                                 <a href="layer_presentation/viewProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-info btn-sm">
+                                    <i class="fas fa-eye"></i>
                                 </a>
                                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                                     <a href="layer_presentation/editProduct.php?product_id=<?php echo $product['product_id']; ?>" class="btn btn-warning btn-sm">
@@ -105,21 +105,14 @@ $products = $controller->listProducts();
     <!-- Include jQuery and DataTables JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <!-- productTable -->
-    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <!-- productTable 
+    <link rel="stylesheet" href="css/styles.css">-->
     <script>
     $(document).ready(function() {    
         $('#productTable').DataTable({
             responsive: true,
-            autoWidth: false,
-            paging: true,
-            searching: true,
-            dom: '<"top"f>rt<"bottom"lp><"clear">',
-            language: {
-                search: "_INPUT_",
-                searchPlaceholder: "Search products..."
-            }
+            pageLength: 10 // Default number of rows per page
         });
     });
     </script>

@@ -14,7 +14,6 @@ INSERT INTO products (name, price, description, product_image) VALUES
 ('CCSU Hat', 24.99, 'One of our more popular items!', 'images/hat_CCSU.jpg'),
 ('CCSU Leggings', 24.99, 'One of our more popular items!', 'images/leggings_CCSU.jpg');
 
-
 -- Cart
 INSERT INTO cart (user_id, product_id, quantity) VALUES
 (1, 2, 1),

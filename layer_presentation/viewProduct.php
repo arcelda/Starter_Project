@@ -6,12 +6,6 @@ $success_message = '';
 $name = $price = $description = ''; // Default empty values
 $product_image = ''; // Default image path
 
-if (!isset($_POST['quantity']) || !is_numeric($_POST['quantity']) || (int)$_POST['quantity'] <= 0) {
-    throw new Exception("Invalid quantity.");
-}
-
-$quantity = (int)$_POST['quantity'];
-
 // Check if product_id is set in the URL for initial loading
 if (isset($_GET['product_id'])) {
     $product_id = filter_var($_GET['product_id'], FILTER_SANITIZE_NUMBER_INT);
@@ -88,18 +82,18 @@ if (isset($_GET['product_id'])) {
                         <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
                         <input type="number" class="form-control text-center quantity-input" 
                             value="1" min="1" max="100" 
-                            data-product-id="<?php echo $product['product_id']; ?>" id="quantity-input"> <!-- Ensure this ID is correct -->
+                            data-product-id="<?php echo $product['product_id']; ?>">
                         <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
                     </div>
 
                     <!-- Add to Cart Form -->
-                    <form action="add_to_cart.php" method="POST">
-                        <input type="number" name="quantity" id="quantity-input" value="1" min="1" required>
-                        <button type="submit">Add to Cart</button>
+                    <form method="POST" action="../layer_presentation/add_to_cart.php">
+                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                        <input type="hidden" name="quantity" value="1"> <!-- Set default to 1 -->
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            Add to Cart
+                        </button>
                     </form>
-
-
-
                 </div>
             </div>
         </div>
@@ -109,51 +103,27 @@ if (isset($_GET['product_id'])) {
 
     <!-- Add JavaScript to handle the quantity change -->
     <script>
-        document.querySelector('form').onsubmit = function() {
-            var quantity = document.querySelector('#quantity-input').value;
-            document.querySelector('input[name="quantity"]').value = quantity; // Make sure it's updated before submission
-        };
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const minusBtns = document.querySelectorAll(".minus-btn");
-            const plusBtns = document.querySelectorAll(".plus-btn");
-            const quantityInputs = document.querySelectorAll(".quantity-input");
-
-            // Handle plus and minus buttons
-            minusBtns.forEach((btn) => {
-                btn.addEventListener("click", function () {
-                    const input = btn.nextElementSibling;
-                    let currentValue = parseInt(input.value, 10) || 1;
-                    if (currentValue > 1) {
-                        input.value = currentValue - 1;
-                        syncQuantity(input);
-                    }
-                });
+        $(document).ready(function() {
+            // Synchronize visible input with the hidden field
+            $('.quantity-input').on('input', function() {
+                const form = $(this).closest('form');
+                form.find('input[name="quantity"]').val($(this).val());
             });
 
-            plusBtns.forEach((btn) => {
-                btn.addEventListener("click", function () {
-                    const input = btn.previousElementSibling;
-                    let currentValue = parseInt(input.value, 10) || 1;
-                    if (currentValue < 100) {
-                        input.value = currentValue + 1;
-                        syncQuantity(input);
-                    }
-                });
+            // Increment quantity
+            $('.plus-btn').on('click', function() {
+                const input = $(this).siblings('.quantity-input');
+                const currentValue = parseInt(input.val()) || 1;
+                input.val(currentValue + 1).trigger('input');
             });
 
-            // Function to sync quantity input value with the hidden form field
-            function syncQuantity(input) {
-                const form = input.closest("form");
-                const hiddenQuantityInput = form.querySelector("input[name='quantity']");
-                hiddenQuantityInput.value = input.value; // Update hidden quantity
-            }
-
-            // Ensure the hidden input is synced on manual input
-            quantityInputs.forEach((input) => {
-                input.addEventListener("input", function () {
-                    syncQuantity(input);
-                });
+            // Decrement quantity
+            $('.minus-btn').on('click', function() {
+                const input = $(this).siblings('.quantity-input');
+                const currentValue = parseInt(input.val()) || 1;
+                if (currentValue > 1) {
+                    input.val(currentValue - 1).trigger('input');
+                }
             });
         });
 
