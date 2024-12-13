@@ -335,6 +335,33 @@ footer {
     }
 }
 
+.submit-button{
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: .5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+
+    color: white !important;
+    background-color: #007bff;
+
+    
+}
+
+button:hover{
+    color: #007bff !important;
+    background-color: white;
+}
 
 .cart-wrapper {
     max-width: 80%; /* Or another suitable percentage */

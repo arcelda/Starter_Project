@@ -1,7 +1,7 @@
 <div class="container mt-3">
     <h2>Add New User to Database</h2>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body register-page-font">
             <!--======================================================================-->
             <form action="./includes/process_registration.php" method="POST" enctype="multipart/form-data"
                 class="needs-validation" novalidate>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button id="submit_button" type="submit" class="btn btn-default submit-button .submit_button:hover">Submit</button>
             </form>
             <!--======================================================================-->
         </div>
