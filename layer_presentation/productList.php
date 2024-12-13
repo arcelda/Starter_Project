@@ -49,7 +49,7 @@ $products = $controller->listProducts();
                         <tr>
                             <td><?php echo htmlspecialchars($product['product_id']); ?></td>
                             <td><?php echo htmlspecialchars($product['name']); ?></td>
-                            <td><?php echo htmlspecialchars($product['price']); ?></td>
+                            <td>$<?php echo htmlspecialchars($product['price']); ?></td>
                             <td><?php echo htmlspecialchars($product['description']); ?></td>
                             <td>
                                 <?php if (!empty($product_image)): ?>

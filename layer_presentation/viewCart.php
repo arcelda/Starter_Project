@@ -64,8 +64,8 @@ if ($cart_data && isset($cart_data['cartItems']) && isset($cart_data['cartTotal'
                             <tr>
                                 <td><?php echo htmlspecialchars($item['name']); ?></td>
                                 <td><?php echo htmlspecialchars($item['quantity']); ?></td>
-                                <td><?php echo htmlspecialchars($item['price']); ?></td>
-                                <td><?php echo htmlspecialchars($item['quantity'] * $item['price']); ?></td>
+                                <td>$<?php echo htmlspecialchars($item['price']); ?></td>
+                                <td>$<?php echo htmlspecialchars($item['quantity'] * $item['price']); ?></td>
                                 <td>
                                     <a href="./layer_presentation/remove_from_cart.php?cart_item_id=<?php echo $item['cart_item_id']; ?>" class="btn btn-danger">Remove</a>
                                 </td>
@@ -75,7 +75,7 @@ if ($cart_data && isset($cart_data['cartItems']) && isset($cart_data['cartTotal'
                 </tbody>
             </table>
         </div>
-        <h3>Total: <?= number_format($cartTotal, 2) ?></h3>
+        <h3>Total: $<?= number_format($cartTotal, 2) ?></h3>
 
     </div>
 

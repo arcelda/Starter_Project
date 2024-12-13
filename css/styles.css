@@ -389,6 +389,10 @@ h2 {
     margin-bottom: 20px; /* Add space below the heading */
 }
 
+h3 {
+    color: white;
+}
+
 /* Added CSS Code for Login Page */
 .gradient-custom-2 {
     /* fallback for old browsers */
