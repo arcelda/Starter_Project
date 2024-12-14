@@ -85,14 +85,16 @@ $products = $controller->listProducts();
                                         data-product-id="<?php echo $product['product_id']; ?>">
                                     <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
                                 </div>
+
                                 <!-- Add to Cart Form -->
                                 <form method="POST" action="layer_presentation/add_to_cart.php">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                                    <input type="hidden" name="quantity" value="1"> <!-- Set default to 1 -->
+                                    <input type="hidden" name="quantity" value="1"> <!-- This will be updated dynamically -->
                                     <button type="submit" class="btn btn-primary btn-sm">
                                         Add to Cart
                                     </button>
                                 </form>
+
                             </td>
                         </tr>
                     <?php } // End of the foreach loop ?>
@@ -100,6 +102,7 @@ $products = $controller->listProducts();
             </table>
         </div>
     </div>
+
 
     <!-- jQuery, Bootstrap JS, and DataTables JS -->
     <!-- Include jQuery and DataTables JS -->
@@ -119,29 +122,34 @@ $products = $controller->listProducts();
 
     <script>
         $(document).ready(function() {
-            // Synchronize visible input with the hidden field
-            $('.quantity-input').on('input', function() {
-                const form = $(this).closest('form');
-                form.find('input[name="quantity"]').val($(this).val());
-            });
-
-            // Increment quantity
-            $('.plus-btn').on('click', function() {
-                const input = $(this).siblings('.quantity-input');
-                const currentValue = parseInt(input.val()) || 1;
-                input.val(currentValue + 1).trigger('input');
-            });
-
-            // Decrement quantity
-            $('.minus-btn').on('click', function() {
-                const input = $(this).siblings('.quantity-input');
-                const currentValue = parseInt(input.val()) || 1;
-                if (currentValue > 1) {
-                    input.val(currentValue - 1).trigger('input');
-                }
-            });
+        // Synchronize visible input with the hidden field
+        $('.quantity-input').on('input', function() {
+            const form = $(this).closest('form');
+            const quantity = $(this).val();
+            // Update the hidden input value
+            form.find('input[name="quantity"]').val(quantity);
+            console.log("Updated hidden input value: " + quantity);  // This will log the correct value
         });
+
+        // Increment quantity
+        $('.plus-btn').on('click', function() {
+            const input = $(this).siblings('.quantity-input');
+            let currentValue = parseInt(input.val()) || 1;  // Default to 1 if invalid
+            input.val(currentValue + 1).trigger('input');  // Trigger input to update the hidden input
+        });
+
+        // Decrement quantity
+        $('.minus-btn').on('click', function() {
+            const input = $(this).siblings('.quantity-input');
+            let currentValue = parseInt(input.val()) || 1;  // Default to 1 if invalid
+            if (currentValue > 1) {
+                input.val(currentValue - 1).trigger('input');  // Trigger input to update the hidden input
+            }
+        });
+    });
+
     </script>
+
 </body>
 
 </html>

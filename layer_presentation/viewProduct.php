@@ -87,9 +87,9 @@ if (isset($_GET['product_id'])) {
                     </div>
 
                     <!-- Add to Cart Form -->
-                    <form method="POST" action="../layer_presentation/add_to_cart.php">
+                    <form method="POST" action="layer_presentation/add_to_cart.php">
                         <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                        <input type="hidden" name="quantity" value="1"> <!-- Set default to 1 -->
+                        <input type="hidden" name="quantity" value="1"> <!-- This will be updated dynamically -->
                         <button type="submit" class="btn btn-primary btn-sm">
                             Add to Cart
                         </button>

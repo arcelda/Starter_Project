@@ -3,7 +3,6 @@ require_once __DIR__ . '/../includes/conn.php';
 
 class CartModel
 {
-    private $table_name = "cart";
     private $conn;
 
     public function __construct()
@@ -67,16 +66,15 @@ class CartModel
     
     public function updateCartItem($cart_item_id, $quantity) {
         try {
-            $query = "UPDATE cart SET quantity = :quantity WHERE cart_item_id = :cart_item_id";
+            $query = "UPDATE cart_items SET quantity = :quantity WHERE cart_item_id = :cart_item_id";
             $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
-            $stmt->bindParam(':cart_item_id', $cart_item_id, PDO::PARAM_INT);
-            $stmt->execute();
+            return $stmt->execute([$quantity, $cart_item_id]);
         } catch (PDOException $e) {
-            error_log("Database error: " . $e->getMessage());
-            throw new Exception("Failed to update cart item.");
+            error_log("Failed to update cart item: " . $e->getMessage());
+            throw new Exception("Could not update cart item.");
         }
     }
+    
 
     public function getCartItems($user_id) {
         $query = "SELECT c.*, p.name, p.price FROM cart c 
