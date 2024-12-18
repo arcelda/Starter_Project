@@ -36,10 +36,9 @@
                     
                     
                 }          
-                ?>
-               
-                
-                <?php include './includes/aside.php'; ?>
+            ?>
+            
+            <?php include './includes/aside.php'; ?>
             </div>
         </div>
         <?php include './includes/footer.php'; ?>
